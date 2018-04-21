@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Map {
 
     public Map( String _entree , String _texte , String _image , String _qcm , String _choix)
@@ -11,13 +9,38 @@ public class Map {
         choix=_choix;
     }
 
-    private string entree;
-    private string sortie;
-    private string texte;
-    private string image;
-    private string qcm;
-    private string choix;
+    private String entree;
+    private String sortie;
+    private String texte;
+    private String image;
+    private String qcm;
+    private String choix;
 
-    void setSortie ();
+    public String getEntree() {
+        return entree;
+    }
 
+    public void setSortie(String sortie) {
+        this.sortie = sortie;
+    }
+
+    public String getSortie() {
+        return sortie;
+    }
+
+    public String getTexte() {
+        return texte;
+    }
+
+    public String getChoix() {
+        return choix;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getQcm() {
+        return qcm;
+    }
 }

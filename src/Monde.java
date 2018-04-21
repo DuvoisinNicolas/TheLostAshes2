@@ -1,13 +1,32 @@
-import java.util.*;
-
 public class Monde {
 
-    public void Monde() {
+    private Map[] tabMaps;
+    private String currentSortie = "";
+    private Map currentMap;
 
-        Map[500] tabMaps;
+    public Monde() {
 
-        Map map1 ("Debut","Bienvenue dans ce super jeu ! Voulez vous aller dans le chemin 1 ou 2 ?","bifurcation","Gauche / Droite");
-        tabMaps[1]=map1;
+        tabMaps = new Map[200];
+        tabMaps[0]= new Map ("Debut","Bienvenue dans ce super jeu !","bifurcation"," Voulez vous aller dans le chemin 1 ou 2 ?" ,"Gauche / Droite");
     }
 
+    public Map[] getTabMaps() {
+        return tabMaps;
+    }
+
+    public void setCurrentSortie(String currentSortie) {
+        this.currentSortie = currentSortie;
+    }
+
+    public String getCurrentSortie() {
+        return currentSortie;
+    }
+
+    public void setCurrentMap(Map currentMap) {
+        this.currentMap = currentMap;
+    }
+
+    public Map getCurrentMap() {
+        return currentMap;
+    }
 }
