@@ -1,3 +1,7 @@
+import javax.imageio.IIOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Map {
 
     public Map( String _entree , String _texte , String _image , String _qcm , String _choix)
@@ -7,6 +11,14 @@ public class Map {
         image="TheLostAshes2/files/" + _image;
         qcm=_qcm;
         choix=_choix;
+        try{
+        image = new String(Files.readAllBytes(Paths.get(_image)));
+        }
+        catch (IIOException i)
+        {
+            System.out.println(i);
+        }
+
     }
 
     private String entree;

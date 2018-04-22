@@ -1,5 +1,4 @@
-public class Personnage
-{
+public class Personnage {
 
     public Personnage()
     {
@@ -8,6 +7,7 @@ public class Personnage
         def=0;
         hp=5;
     }
+
     private String name;
     private int atk;
     private int def;

@@ -1,16 +1,19 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Monde {
 
-    private Map[] tabMaps;
+    private ArrayList<Map> tabMaps = new ArrayList<>();
     private String currentSortie = "";
-    private Map currentMap;
+    private Map currentMap = new Map("","","","","");
+    private int currentIndice;
 
     public Monde() {
-
-        tabMaps = new Map[200];
-        tabMaps[0]= new Map ("Debut","Bienvenue dans ce super jeu !","bifurcation"," Voulez vous aller dans le chemin 1 ou 2 ?" ,"Gauche / Droite");
+        Map map1 = new Map ("Debut","Bienvenue dans ce super jeu !","bifurcation.jpg"," Voulez vous aller dans le chemin 1 ou 2 ?" ,"Gauche / Droite");
+        tabMaps.add(map1);
     }
 
-    public Map[] getTabMaps() {
+    public ArrayList<Map> getTabMaps() {
         return tabMaps;
     }
 
@@ -28,5 +31,18 @@ public class Monde {
 
     public Map getCurrentMap() {
         return currentMap;
+    }
+
+    public int getCurrentIndice()
+    {
+        for (int i=0 ; i<tabMaps.size(); ++i)
+        {
+            if (tabMaps.get(i)==currentMap)
+            {
+                return i;
+            }
+        }
+        return 0;
+
     }
 }
