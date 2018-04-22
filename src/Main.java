@@ -25,8 +25,20 @@ public class Main extends Application {
     private static Personnage P = new Personnage();
     private static Monde M = new Monde();
     private Group root = new Group();
-    private Button b1 = new Button();
-    private Button b2 = new Button();
+
+
+    private Text text;
+    private Image img;
+    private Text qcm;
+    private ImageView selectedImage;
+    private StackPane P1;
+    private StackPane P2;
+    private Button b1;
+    private Button b2;
+
+
+
+
 
 
     public static void main (String[] args)
@@ -41,7 +53,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, 800, 600, Color.GREY);
         primaryStage.setScene(scene);
-
+        primaryStage.setResizable(false);
         afficherDecor();
 
         TextField nom = new TextField();
@@ -54,15 +66,14 @@ public class Main extends Application {
 
 
         //Test de pression de bouton
-        valider.setOnAction(new EventHandler<ActionEvent>()
+        valider.setOnAction((event)->
         {
-            public void handle(ActionEvent event) {
                 P.setName(nom.getText());
                 M.setCurrentSortie("Entree");
                 root.getChildren().clear();
-                afficherMapDecorStat();
-                primaryStage.show();
-            }
+                initMapDecorStat();
+                preparerBoutons();
+
         });
 
 
@@ -74,47 +85,42 @@ public class Main extends Application {
                 {
                     P.setName(nom.getText());
                     M.setCurrentSortie("Entree");
-                    root.getChildren().clear();
-                    afficherMapDecorStat();
-                    primaryStage.show();
+                    initMapDecorStat();
+                    preparerBoutons();
                 }
             }
         });
 
 
-            b1.setOnAction(new EventHandler<ActionEvent>()
-            {
-                public void handle(ActionEvent event) {
-                    M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
-                    root.getChildren().clear();
-                    afficherMapDecorStat();
-                    primaryStage.show();
-
-                }
-            });
-
-            b2.setOnAction(new EventHandler<ActionEvent>()
-            {
-                public void handle(ActionEvent event) {
-                    M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix2());
-                    root.getChildren().clear();
-                    afficherMapDecorStat();
-                    primaryStage.show();
-                }
-            });
-
-            primaryStage.show();
+        primaryStage.show();
         }
 
 
 
 
 
+    public void preparerBoutons()
+    {
+        b1.setOnAction((event) ->
+        {
+            M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
+            choisirMap();
+            afficherMap();
+
+        });
+
+        b2.setOnAction((event) ->
+        {
+            M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix2());
+            choisirMap();
+            afficherMap();
+        });
+    }
 
     public void choisirMap ()
     {
         Map[] maps=new Map[50];
-        int compteur = 0 , randVal =0;
+        int compteur = 0 ;
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
@@ -124,41 +130,35 @@ public class Main extends Application {
                 ++compteur;
             }
         }
-        randVal = (int)(Math.random() * (compteur));
-        M.setCurrentMap(M.getTabMaps().get(randVal));
+        int randVal = (int)(Math.random() * (compteur));
+
+        M.setCurrentMap(maps[randVal]);
+
     }
 
-    public void afficherMap ()
+    public void initMap ()
     {
-        Text texte = new Text(50,450,M.getCurrentMap().getTexte());
-        texte.setFill(Color.RED);
-        root.getChildren().add(texte);
-
-        Image img = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
-        ImageView selectedImage = new ImageView();
+        text = new Text(50,450,M.getCurrentMap().getTexte());
+        img = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
+        selectedImage = new ImageView();
         selectedImage.setX(200);
         selectedImage.setY(50);
         selectedImage.setImage(img);
-        root.getChildren().add(selectedImage);
 
-        Text qcm = new Text(50,530,M.getCurrentMap().getQcm());
-        texte.setFill(Color.BLACK);
-        root.getChildren().add(qcm);
+        qcm = new Text(50,530,M.getCurrentMap().getQcm());
 
-        Button b1 = new Button(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
-        Button b2 = new Button(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
-        StackPane P1 = new StackPane();
+        b1 = new Button(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
+        b2 = new Button(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
+        P1 = new StackPane();
         P1.getChildren().add(b1);
         P1.setLayoutX(200);
         P1.setLayoutY(550);
 
-        StackPane P2 = new StackPane();
+        P2 = new StackPane();
         P2.getChildren().add(b2);
         P2.setLayoutX(500);
         P2.setLayoutY(550);
 
-        root.getChildren().add(P1);
-        root.getChildren().add(P2);
 
 
     }
@@ -196,12 +196,29 @@ public class Main extends Application {
         root.getChildren().add(stats);
     }
 
-    public void afficherMapDecorStat()
+    public void afficherMap()
     {
+        text.setText(M.getCurrentMap().getTexte());
+        Image imgTemp = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
+        selectedImage.setImage(imgTemp);
+        qcm.setText(M.getCurrentMap().getQcm());
+        b1.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
+        b2.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
+    }
+
+    public void initMapDecorStat()
+    {
+
         choisirMap();
         afficherDecor();
-        afficherMap();
+        initMap();
         afficherStats();
+
+        root.getChildren().add(text);
+        root.getChildren().add(selectedImage);
+        root.getChildren().add(qcm);
+        root.getChildren().add(P1);
+        root.getChildren().add(P2);
     }
 
 }

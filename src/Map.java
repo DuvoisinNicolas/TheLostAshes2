@@ -16,12 +16,11 @@ public class Map {
         choix1=_choix1;
         choix2=_choix2;
         sortieChoix1=_sortieChoix1;
-        sortieChoix1=_sortieChoix2;
+        sortieChoix2=_sortieChoix2;
 
     }
 
     private String entree;
-    private String sortie;
     private String texte;
     private String image;
     private String qcm;
@@ -33,14 +32,6 @@ public class Map {
 
     public String getEntree() {
         return entree;
-    }
-
-    public void setSortie(String choix) {
-
-    }
-
-    public String getSortie() {
-        return sortie;
     }
 
     public String getTexte() {
