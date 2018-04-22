@@ -1,16 +1,17 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Monde {
 
     private ArrayList<Map> tabMaps = new ArrayList<>();
     private String currentSortie = "";
-    private Map currentMap = new Map("","","","","");
+    private Map currentMap = new Map("","","","","","","","");
     private int currentIndice;
 
     public Monde() {
-        Map map1 = new Map ("Debut","Bienvenue dans ce super jeu !","bifurcation.jpg"," Voulez vous aller dans le chemin 1 ou 2 ?" ,"Gauche / Droite");
+        Map map1 = new Map ("Debut","Vous vous réveillez completement assommé , sans savoir d'où vous venez ... Vous appercevez deux chemins en vous relevant. Celui de gauche semble mener à une forêt , et celui de droite à des collines.","bifurcation.jpg"," Voulez vous aller dans le chemin 1 ou 2 ?" ,"Gauche","Droite","Foret","Montagne");
         tabMaps.add(map1);
+        Map map2 = new Map("Foret","Vous décidez d'entrer dans la forêt . Soudainement , vous entendez des cris de douleur.","foret.jpg","Que voulez vous faire ?","Aller aider !","Se cacher dans un buisson","ForetCri","Buisson");
+        tabMaps.add(map2);
     }
 
     public ArrayList<Map> getTabMaps() {
