@@ -1,6 +1,4 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;

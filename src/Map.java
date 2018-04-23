@@ -1,6 +1,4 @@
 import java.io.File;
-import java.util.ArrayList;
-
 import static java.lang.String.valueOf;
 
 
@@ -11,7 +9,7 @@ public class Map {
         File f = new File ("");
         entree=_entree;
         texte=_texte;
-        image= "file:///"+f.getAbsolutePath() + "\\src\\files\\" +  _image;
+        image= "file:///"+f.getAbsolutePath() + "/files/" +  _image;
         qcm=_qcm;
         choix1=_choix1;
         choix2=_choix2;
