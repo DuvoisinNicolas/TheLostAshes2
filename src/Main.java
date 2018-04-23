@@ -12,10 +12,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-import java.io.File;
 
 public class Main extends Application {
 
@@ -25,7 +25,7 @@ public class Main extends Application {
     private Group root = new Group();
 
 
-    private Text text;
+    private static Text text;
     private Image img;
     private Text qcm;
     private ImageView selectedImage;
@@ -39,9 +39,9 @@ public class Main extends Application {
 
 
 
+
     public static void main (String[] args)
     {
-        System.out.println(new File("").getAbsolutePath());
         Application.launch();
     }
 
@@ -53,6 +53,13 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         afficherDecor();
+
+        Text welcomeText = new Text("Entrez votre nom :");
+        welcomeText.setX(280);
+        welcomeText.setY(200);
+        welcomeText.setStyle("-fx-font-size : 24");
+        welcomeText.setFont(new Font("Calibri" , 30));
+        root.getChildren().add(welcomeText);
 
         TextField nom = new TextField();
         nom.relocate(280,300);
@@ -92,9 +99,6 @@ public class Main extends Application {
 
         primaryStage.show();
         }
-
-
-
 
 
     public void preparerBoutons()
@@ -137,6 +141,9 @@ public class Main extends Application {
     public void initMap ()
     {
         text = new Text(50,450,M.getCurrentMap().getTexte());
+        text.setFont(new Font("Calibri" ,15));
+
+
         img = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
         selectedImage = new ImageView();
         selectedImage.setX(200);
@@ -147,6 +154,7 @@ public class Main extends Application {
 
         b1 = new Button(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
         b2 = new Button(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
+
         P1 = new StackPane();
         P1.getChildren().add(b1);
         P1.setLayoutX(200);

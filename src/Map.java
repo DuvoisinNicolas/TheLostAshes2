@@ -9,7 +9,7 @@ public class Map {
         File f = new File ("");
         entree=_entree;
         texte=_texte;
-        image= "file:///"+f.getAbsolutePath() + "/files/" +  _image;
+        image= "file:///"+ f.getAbsolutePath() + "/files/" +  _image;
         qcm=_qcm;
         choix1=_choix1;
         choix2=_choix2;
@@ -74,7 +74,7 @@ public class Map {
                 charArray[i] = '\n';
                 charCpt = 0;
                 ++endlCpt;
-                if (endlCpt>=5)
+                if (endlCpt>=4)
                     throw new ArrayIndexOutOfBoundsException("Trop de sauts de ligne");
             }
 
