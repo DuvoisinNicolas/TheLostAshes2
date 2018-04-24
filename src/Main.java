@@ -25,6 +25,7 @@ public class Main extends Application {
 
 
     private static Text text;
+    private Text stats= new Text(20,50,"");
     private Image img;
     private Text qcm;
     private ImageView selectedImage;
@@ -62,6 +63,7 @@ public class Main extends Application {
         Button valider = new Button("Valider");
         valider.relocate(450,300);
         root.getChildren().add(valider);
+        root.getChildren().add(stats);
 
 
         //Test de pression de bouton
@@ -119,7 +121,7 @@ public class Main extends Application {
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
-            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()) && M.getTabMaps().get(i).getVisite() == false)
+            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()) && !M.getTabMaps().get(i).getVisite())
             {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
@@ -128,6 +130,8 @@ public class Main extends Application {
         int randVal = (int)(Math.random() * (compteur));
 
         M.setCurrentMap(maps[randVal]);
+        M.getCurrentMap().calculerResultatCombat();
+        afficherStats();
         M.getTabMaps().get(M.getCurrentIndice()).setVisite(true);
     }
 
@@ -161,9 +165,6 @@ public class Main extends Application {
         P2.getChildren().add(b2);
         P2.setLayoutX(500);
         P2.setLayoutY(550);
-
-
-
     }
 
     public static Monde getM() {
@@ -198,9 +199,8 @@ public class Main extends Application {
 
     public void afficherStats()
     {
-        Text stats = new Text(20,50,"Nom: "+ P.getName() +"\n \n \nAttaque : " + P.getAtk() +"\n \nHP : " + P.getHp());
+        stats.setText("Nom: "+ P.getName() +"\n \n \nAttaque : " + P.getAtk() +"\n \nHP : " + P.getHp());
         stats.setFill(Color.BLACK);
-        root.getChildren().add(stats);
     }
 
     public void afficherMap()

@@ -15,6 +15,7 @@ public class Chapitre {
     {
         listEnnemi.add(e);
     }
+
     public Ennemi getEnnemiChapitre() {
         return listEnnemi.get((int) (Math.random() *  listEnnemi.size()));
     }

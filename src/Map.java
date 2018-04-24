@@ -18,18 +18,12 @@ public class Map {
         sortieChoix2=_sortieChoix2;
         texte = setText(texte);
         ennemi= chapitre.getEnnemiChapitre();
-        if (Main.getP().getAtk()>= ennemi.getAtk() && _monstre==true)
-        {
-            texte += '\n' + ennemi.getVictoire();
-            Main.getP().setHp(Main.getP().getHp() - 1);
-        }
-        else if (Main.getP().getAtk()< ennemi.getAtk() && _monstre==true)
-        {
-        Main.getP().setHp(Main.getP().getHp() - 1);
-        texte += '\n' + ennemi.getDefaite();
-        }
+        monstre=_monstre;
+
+
     }
 
+    private boolean monstre;
     private Ennemi ennemi;
     private Chapitre chapitre;
     private String entree;
@@ -43,6 +37,19 @@ public class Map {
     private boolean visite=false;
 
 
+
+    public void calculerResultatCombat()
+    {
+        if (Main.getP().getAtk()>= ennemi.getAtk() && monstre==true)
+        {
+            texte += '\n' + ennemi.getVictoire();
+            Main.getP().setHp(Main.getP().getHp() + 1);
+        }
+        else if (Main.getP().getAtk()< ennemi.getAtk() && monstre==true) {
+            Main.getP().setHp(Main.getP().getHp() - 1);
+            texte += '\n' + ennemi.getDefaite();
+        }
+    }
 
     public String getEntree() {
         return entree;
