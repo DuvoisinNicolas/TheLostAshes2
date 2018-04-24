@@ -19,10 +19,15 @@ public class Map {
         texte = setText(texte);
         ennemi= chapitre.getEnnemiChapitre();
         if (Main.getP().getAtk()>= ennemi.getAtk() && _monstre==true)
-            texte+='\n'+ennemi.getVictoire();
+        {
+            texte += '\n' + ennemi.getVictoire();
+            Main.getP().setHp(Main.getP().getHp() - 1);
+        }
         else if (Main.getP().getAtk()< ennemi.getAtk() && _monstre==true)
-            texte+='\n'+ennemi.getDefaite();
-
+        {
+        Main.getP().setHp(Main.getP().getHp() - 1);
+        texte += '\n' + ennemi.getDefaite();
+        }
     }
 
     private Ennemi ennemi;

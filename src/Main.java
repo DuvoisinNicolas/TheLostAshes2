@@ -198,7 +198,7 @@ public class Main extends Application {
 
     public void afficherStats()
     {
-        Text stats = new Text(20,50,"Nom: "+ P.getName() +"\n \n \nAttaque : " + P.getAtk() + "\n \nDéfense : " + P.getDef() + "\n \nHP : " + P.getHp());
+        Text stats = new Text(20,50,"Nom: "+ P.getName() +"\n \n \nAttaque : " + P.getAtk() +"\n \nHP : " + P.getHp());
         stats.setFill(Color.BLACK);
         root.getChildren().add(stats);
     }

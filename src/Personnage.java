@@ -4,13 +4,11 @@ public class Personnage {
     {
         name="";
         atk=3;
-        def=0;
         hp=5;
     }
 
     private String name;
     private int atk;
-    private int def;
     private int hp;
 
     public void setName(String name) {
@@ -21,12 +19,16 @@ public class Personnage {
         return atk;
     }
 
-    public int getDef() {
-        return def;
-    }
-
     public int getHp() {
         return hp;
+    }
+
+    public void setAtk(int atk) {
+        this.atk = atk;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public String getName() {
