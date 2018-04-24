@@ -3,15 +3,19 @@ import java.util.ArrayList;
 public class Chapitre {
 
     private int numero;
-    private Ennemi ennemiChapitre;
+    private ArrayList<Ennemi> listEnnemi= new ArrayList<>();
 
-    public Chapitre (int _numero , Ennemi e)
+
+    public Chapitre (int _numero)
     {
         numero=_numero;
-        ennemiChapitre = e;
     }
 
+    public void addEnnemi (Ennemi e)
+    {
+        listEnnemi.add(e);
+    }
     public Ennemi getEnnemiChapitre() {
-        return ennemiChapitre;
+        return listEnnemi.get((int) (Math.random() *  listEnnemi.size()));
     }
 }

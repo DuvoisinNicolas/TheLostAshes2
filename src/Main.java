@@ -34,11 +34,6 @@ public class Main extends Application {
     private Button b2;
 
 
-
-
-
-
-
     public static void main (String[] args)
     {
         Application.launch();
@@ -99,7 +94,6 @@ public class Main extends Application {
         primaryStage.show();
         }
 
-
     public void preparerBoutons()
     {
         b1.setOnAction((event) ->
@@ -125,7 +119,7 @@ public class Main extends Application {
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
-            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()))
+            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()) && M.getTabMaps().get(i).getVisite() == false)
             {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
@@ -134,12 +128,9 @@ public class Main extends Application {
         int randVal = (int)(Math.random() * (compteur));
 
         M.setCurrentMap(maps[randVal]);
-
+        M.getTabMaps().get(M.getCurrentIndice()).setVisite(true);
     }
 
-    public static Personnage getP() {
-        return P;
-    }
 
     public void initMap ()
     {
@@ -236,5 +227,10 @@ public class Main extends Application {
         root.getChildren().add(P1);
         root.getChildren().add(P2);
     }
+
+    public static Personnage getP() {
+        return P;
+    }
+
 
 }

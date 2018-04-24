@@ -4,7 +4,7 @@ import static java.lang.String.valueOf;
 
 public class Map {
 
-    public Map( int _chapitre , String _entree , String _texte , String _image , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, boolean _monstre,Ennemi e)
+    public Map( Chapitre _chapitre , String _entree , String _texte , String _image , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, boolean _monstre)
     {
         chapitre=_chapitre;
         File f = new File ("");
@@ -17,7 +17,7 @@ public class Map {
         sortieChoix1=_sortieChoix1;
         sortieChoix2=_sortieChoix2;
         texte = setText(texte);
-        ennemi= e;
+        ennemi= chapitre.getEnnemiChapitre();
         if (Main.getP().getAtk()>= ennemi.getAtk() && _monstre==true)
             texte+='\n'+ennemi.getVictoire();
         else if (Main.getP().getAtk()< ennemi.getAtk() && _monstre==true)
@@ -26,7 +26,7 @@ public class Map {
     }
 
     private Ennemi ennemi;
-    private int chapitre;
+    private Chapitre chapitre;
     private String entree;
     private String texte;
     private String image;
@@ -35,6 +35,7 @@ public class Map {
     private String choix2;
     private String sortieChoix1;
     private String sortieChoix2;
+    private boolean visite=false;
 
 
 
@@ -70,6 +71,10 @@ public class Map {
         return sortieChoix2;
     }
 
+    public void setVisite(boolean visite) {
+        this.visite = visite;
+    }
+
     public static String setText (String texte)
     {
         char[] charArray= texte.toCharArray();
@@ -97,5 +102,10 @@ public class Map {
             }
         }
         return valueOf(charArray);
+    }
+
+    public boolean getVisite ()
+    {
+        return this.visite;
     }
 }
