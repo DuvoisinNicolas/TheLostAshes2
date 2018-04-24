@@ -19,7 +19,6 @@ import javafx.scene.control.TextField;
 
 public class Main extends Application {
 
-    private Boolean Victoire = false;
     private static Personnage P = new Personnage();
     private static Monde M = new Monde();
     private Group root = new Group();
@@ -138,16 +137,23 @@ public class Main extends Application {
 
     }
 
+    public static Personnage getP() {
+        return P;
+    }
+
     public void initMap ()
     {
         text = new Text(50,450,M.getCurrentMap().getTexte());
-        text.setFont(new Font("Calibri" ,15));
+        text.setFont(new Font("Calibri" ,13));
 
 
         img = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
+
         selectedImage = new ImageView();
+        selectedImage.setFitHeight(350);
+        selectedImage.setFitWidth(400);
         selectedImage.setX(200);
-        selectedImage.setY(50);
+        selectedImage.setY(30);
         selectedImage.setImage(img);
 
         qcm = new Text(50,530,M.getCurrentMap().getQcm());
@@ -167,6 +173,10 @@ public class Main extends Application {
 
 
 
+    }
+
+    public static Monde getM() {
+        return M;
     }
 
     public void afficherDecor ()

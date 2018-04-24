@@ -4,8 +4,9 @@ import static java.lang.String.valueOf;
 
 public class Map {
 
-    public Map( String _entree , String _texte , String _image , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2)
+    public Map( int _chapitre , String _entree , String _texte , String _image , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, boolean _monstre,Ennemi e)
     {
+        chapitre=_chapitre;
         File f = new File ("");
         entree=_entree;
         texte=_texte;
@@ -15,9 +16,17 @@ public class Map {
         choix2=_choix2;
         sortieChoix1=_sortieChoix1;
         sortieChoix2=_sortieChoix2;
+        texte = setText(texte);
+        ennemi= e;
+        if (Main.getP().getAtk()>= ennemi.getAtk() && _monstre==true)
+            texte+='\n'+ennemi.getVictoire();
+        else if (Main.getP().getAtk()< ennemi.getAtk() && _monstre==true)
+            texte+='\n'+ennemi.getDefaite();
 
     }
 
+    private Ennemi ennemi;
+    private int chapitre;
     private String entree;
     private String texte;
     private String image;
@@ -28,12 +37,12 @@ public class Map {
     private String sortieChoix2;
 
 
+
     public String getEntree() {
         return entree;
     }
 
     public String getTexte() {
-        texte = setText(texte);
         return texte;
     }
 
