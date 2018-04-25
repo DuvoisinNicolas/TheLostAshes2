@@ -15,6 +15,7 @@ public class Monde {
 
 
         //Récupere tout les fichiers .txt
+
         File f = new File ("");
         File file = new File("//"+ f.getAbsolutePath() + "/files/");
         File[] files = file.listFiles();
@@ -39,7 +40,6 @@ public class Monde {
         currentChapitre = chapitre1;
         currentChapitre.addEnnemi(e1);
 
-        int i=0;
         for (File fic : tabMapsPaths)
         {
 
@@ -50,7 +50,7 @@ public class Monde {
                 line=br.readLine();
             }
 
-
+            tabMaps.add(new Map (param1,param2,param3,...));
 
         }
         Map map1 = new Map (chapitre1,"Entree","Vous vous réveillez completement assommé , sans savoir d'où vous venez ... Vous appercevez deux chemins en vous relevant. Celui de gauche semble mener à une forêt , et celui de droite à des collines.","bifurcation.jpg"," Voulez vous aller dans le chemin 1 ou 2 ?" ,"Gauche","Droite","Foret","Montagne",false);
