@@ -17,10 +17,24 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class Main extends Application {
 
     private static Personnage P = new Personnage();
-    private static Monde M = new Monde();
+    private static Monde M;
+
+    static {
+        try {
+            M = new Monde();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Group root = new Group();
 
 
