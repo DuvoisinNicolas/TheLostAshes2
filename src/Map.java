@@ -4,31 +4,28 @@ import static java.lang.String.valueOf;
 
 public class Map {
 
-    public Map( Chapitre _chapitre , String _entree , String _texte , String _image , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, boolean _monstre)
+    public Map( String  _chapitre , String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre)
     {
-        chapitre=_chapitre;
-        File f = new File ("");
+
         entree=_entree;
         texte=_texte;
-        image= "file:///"+ f.getAbsolutePath() + "/files/" +  _image;
         qcm=_qcm;
         choix1=_choix1;
         choix2=_choix2;
         sortieChoix1=_sortieChoix1;
         sortieChoix2=_sortieChoix2;
         texte = setText(texte);
-        ennemi= chapitre.getEnnemiChapitre();
         monstre=_monstre;
+        chapitreTemp=_chapitre;
 
 
     }
-
-    private boolean monstre;
+    private String chapitreTemp;
+    private String monstre;
     private Ennemi ennemi;
     private Chapitre chapitre;
     private String entree;
     private String texte;
-    private String image;
     private String qcm;
     private String choix1;
     private String choix2;
@@ -36,16 +33,24 @@ public class Map {
     private String sortieChoix2;
     private boolean visite=false;
 
+    public void buildChapitre ()
+    {
+        int i = Integer.valueOf(chapitreTemp);
+        if (i == Main.getM().getTabChapitre().get(0).getNumero());
+        chapitre=Main.getM().getTabChapitre().get(i-1);
+        ennemi= chapitre.getEnnemiChapitre();
+
+    }
 
 
     public void calculerResultatCombat()
     {
-        if (Main.getP().getAtk()>= ennemi.getAtk() && monstre==true)
+        if (Main.getP().getAtk()>= ennemi.getAtk() && monstre=="")
         {
             texte += '\n' + ennemi.getVictoire();
             Main.getP().setHp(Main.getP().getHp() + 1);
         }
-        else if (Main.getP().getAtk()< ennemi.getAtk() && monstre==true) {
+        else if (Main.getP().getAtk()< ennemi.getAtk() && monstre=="") {
             Main.getP().setHp(Main.getP().getHp() - 1);
             texte += '\n' + ennemi.getDefaite();
         }
@@ -65,10 +70,6 @@ public class Map {
 
     public String getChoix2() {
         return choix2;
-    }
-
-    public String getImage() {
-        return image;
     }
 
     public String getQcm() {

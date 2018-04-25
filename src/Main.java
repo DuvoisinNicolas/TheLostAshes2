@@ -28,29 +28,28 @@ public class Main extends Application {
     static {
         try {
             M = new Monde();
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+
     private Group root = new Group();
 
 
     private static Text text;
     private Text stats= new Text(20,50,"");
-    private Image img;
     private Text qcm;
-    private ImageView selectedImage;
     private StackPane P1;
     private StackPane P2;
     private Button b1;
     private Button b2;
 
 
-    public static void main (String[] args)
-    {
+    public static void main (String[] args) throws IOException {
+        M.buildWorld();
         Application.launch();
     }
 
@@ -156,14 +155,6 @@ public class Main extends Application {
         text.setFont(new Font("Calibri" ,13));
 
 
-        img = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
-
-        selectedImage = new ImageView();
-        selectedImage.setFitHeight(350);
-        selectedImage.setFitWidth(400);
-        selectedImage.setX(200);
-        selectedImage.setY(30);
-        selectedImage.setImage(img);
 
         qcm = new Text(50,530,M.getCurrentMap().getQcm());
 
@@ -220,8 +211,6 @@ public class Main extends Application {
     public void afficherMap()
     {
         text.setText(M.getCurrentMap().getTexte());
-        Image imgTemp = new Image(M.getTabMaps().get(M.getCurrentIndice()).getImage(),400,400,true,true);
-        selectedImage.setImage(imgTemp);
         qcm.setText(M.getCurrentMap().getQcm());
         b1.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
         b2.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
@@ -236,7 +225,6 @@ public class Main extends Application {
         afficherStats();
 
         root.getChildren().add(text);
-        root.getChildren().add(selectedImage);
         root.getChildren().add(qcm);
         root.getChildren().add(P1);
         root.getChildren().add(P2);

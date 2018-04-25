@@ -19,4 +19,8 @@ public class Chapitre {
     public Ennemi getEnnemiChapitre() {
         return listEnnemi.get((int) (Math.random() *  listEnnemi.size()));
     }
+
+    public int getNumero() {
+        return numero;
+    }
 }
