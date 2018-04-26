@@ -49,7 +49,6 @@ public class Main extends Application {
 
 
     public static void main (String[] args) throws IOException {
-        M.buildChapitre();
         M.buildWorld();
         M.buildEnnemi();
         Application.launch();

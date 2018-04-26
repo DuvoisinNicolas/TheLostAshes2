@@ -3,7 +3,7 @@ import static java.lang.String.valueOf;
 
 public class Map {
 
-    public Map(String  _chapitre , String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre)
+    public Map(String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre)
     {
 
         entree=_entree;
@@ -15,12 +15,6 @@ public class Map {
         sortieChoix2=_sortieChoix2;
         texte = setText(texte);
         monstre=_monstre;
-        chapitreTemp=_chapitre;
-        setChapitre();
-        if (!monstre.equals("AucunMonstre"))
-        {
-            System.out.println(chapitre.getNumero());
-        }
 
 
 
@@ -28,7 +22,6 @@ public class Map {
     private String chapitreTemp;
     private String monstre;
     private Ennemi ennemi;
-    private Chapitre chapitre;
     private String entree;
     private String texte;
     private String qcm;
@@ -38,17 +31,6 @@ public class Map {
     private String sortieChoix2;
     private boolean visite=false;
 
-    public void setChapitre ()
-    {
-        String i = chapitreTemp;
-        for (int j=0 ; j <  Main.getM().getTabChapitre().size() ;++j)
-        {
-            if (i.equals(Main.getM().getTabChapitre().get(j).getNumero()))
-            {
-                chapitre = Main.getM().getTabChapitre().get(Integer.parseInt(i) - 1);
-            }
-        }
-    }
 
     public void calculerResultatCombat()
     {
@@ -130,7 +112,4 @@ public class Map {
         return this.visite;
     }
 
-    public Chapitre getChapitre() {
-        return chapitre;
-    }
 }

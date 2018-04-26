@@ -6,18 +6,13 @@ public class Ennemi {
     private String defaite;
     private int chapitre;
 
-    public Ennemi (int _chapitre , String _nom, int _atk,String _victoire,String _defaite)
+    public Ennemi ( String _nom, int _atk,String _victoire,String _defaite)
     {
         atk=_atk;
         nom=_nom;
         victoire=_victoire;
         defaite=_defaite;
-        chapitre=_chapitre;
 
-    }
-
-    public int getChapitre() {
-        return chapitre;
     }
 
     public int getAtk() {
