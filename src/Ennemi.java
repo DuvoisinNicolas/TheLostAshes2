@@ -1,10 +1,10 @@
 public class Ennemi {
 
-    int atk;
-    String nom;
-    String victoire;
-    String defaite;
-    int chapitre;
+    private int atk;
+    private String nom;
+    private String victoire;
+    private String defaite;
+    private int chapitre;
 
     public Ennemi (int _chapitre , String _nom, int _atk,String _victoire,String _defaite)
     {

@@ -1,4 +1,3 @@
-import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
 
@@ -17,6 +16,12 @@ public class Map {
         texte = setText(texte);
         monstre=_monstre;
         chapitreTemp=_chapitre;
+        setChapitre();
+        if (!monstre.equals("AucunMonstre"))
+        {
+            System.out.println(chapitre.getNumero());
+        }
+
 
 
     }
@@ -33,26 +38,27 @@ public class Map {
     private String sortieChoix2;
     private boolean visite=false;
 
-    public void buildChapitre ()
+    public void setChapitre ()
     {
         String i = chapitreTemp;
-        if (i == Main.getM().getTabChapitre().get(0).getNumero())
+        for (int j=0 ; j <  Main.getM().getTabChapitre().size() ;++j)
         {
-            chapitre = Main.getM().getTabChapitre().get(Integer.parseInt(i) - 1);
-            ennemi = chapitre.getEnnemiChapitre();
+            if (i.equals(Main.getM().getTabChapitre().get(j).getNumero()))
+            {
+                chapitre = Main.getM().getTabChapitre().get(Integer.parseInt(i) - 1);
+            }
         }
-
     }
-
 
     public void calculerResultatCombat()
     {
-        if (Main.getP().getAtk()>= ennemi.getAtk() && monstre=="")
+        if (!monstre.equals("AucunMonstre") && Main.getP().getAtk() >= ennemi.getAtk())
         {
             texte += '\n' + ennemi.getVictoire();
             Main.getP().setHp(Main.getP().getHp() + 1);
         }
-        else if (Main.getP().getAtk()< ennemi.getAtk() && monstre=="") {
+        else if ( !monstre.equals("AucunMonstre") && Main.getP().getAtk() < ennemi.getAtk() )
+        {
             Main.getP().setHp(Main.getP().getHp() - 1);
             texte += '\n' + ennemi.getDefaite();
         }
