@@ -1,10 +1,10 @@
-import java.io.File;
+import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
 
 public class Map {
 
-    public Map( String  _chapitre , String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre)
+    public Map(String  _chapitre , String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre)
     {
 
         entree=_entree;
@@ -35,10 +35,12 @@ public class Map {
 
     public void buildChapitre ()
     {
-        int i = Integer.valueOf(chapitreTemp);
-        if (i == Main.getM().getTabChapitre().get(0).getNumero());
-        chapitre=Main.getM().getTabChapitre().get(i-1);
-        ennemi= chapitre.getEnnemiChapitre();
+        String i = chapitreTemp;
+        if (i == Main.getM().getTabChapitre().get(0).getNumero())
+        {
+            chapitre = Main.getM().getTabChapitre().get(Integer.parseInt(i) - 1);
+            ennemi = chapitre.getEnnemiChapitre();
+        }
 
     }
 
@@ -120,5 +122,9 @@ public class Map {
     public boolean getVisite ()
     {
         return this.visite;
+    }
+
+    public Chapitre getChapitre() {
+        return chapitre;
     }
 }
