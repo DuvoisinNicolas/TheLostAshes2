@@ -16,14 +16,6 @@ public class Monde {
 
     public Monde() throws IOException {
 
-
-
-        Ennemi e1 = new Ennemi("Jeremie",12,"Vous avez compris l'UML , bravo ! Jérémie retourne se cacher","L'UML à eu raison de vous , vous perdez le combat et une vie");
-        Ennemi e2 = new Ennemi("Jeremie",12,"Jérémie retourne se cacher","L'UML à eu raison de vous , vous perdez le combat et une vie");
-
-
-        tabEnnemi.add(e1);
-        tabEnnemi.add(e2);
     }
 
     public void buildWorld () throws IOException {
@@ -48,8 +40,6 @@ public class Monde {
 
         //Ajout des maps
 
-
-        int i = 0;
         for (File fic : tabMapsPaths)
         {
             ArrayList<String> arguments = new ArrayList<>();
@@ -61,7 +51,7 @@ public class Monde {
                 line=br.readLine();
             }
             tabMaps.add(new Map (arguments.get(0),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7)));
-            ++i;
+
         }
     }
 
@@ -88,6 +78,7 @@ public class Monde {
         //Ajout des maps
 
 
+        int i=0;
         for (File fic : tabEnnemiPaths)
         {
 
@@ -100,6 +91,8 @@ public class Monde {
                 line=br.readLine();
             }
             tabEnnemi.add(new Ennemi (arguments.get(0),valueOf(arguments.get(1)),arguments.get(2),arguments.get(3)));
+            System.out.println(tabEnnemi.get(i).getNom());
+            ++i;
         }
     }
 
@@ -134,5 +127,9 @@ public class Monde {
         }
         return 0;
 
+    }
+
+    public ArrayList<Ennemi> getTabEnnemi() {
+        return tabEnnemi;
     }
 }

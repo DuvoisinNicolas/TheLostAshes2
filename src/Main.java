@@ -144,7 +144,6 @@ public class Main extends Application {
         int randVal = (int)(Math.random() * (compteur));
 
         M.setCurrentMap(maps[randVal]);
-
         M.getCurrentMap().calculerResultatCombat();
         afficherStats();
         M.getTabMaps().get(M.getCurrentIndice()).setVisite(true);

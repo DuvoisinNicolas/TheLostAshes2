@@ -4,7 +4,6 @@ public class Ennemi {
     private String nom;
     private String victoire;
     private String defaite;
-    private int chapitre;
 
     public Ennemi ( String _nom, int _atk,String _victoire,String _defaite)
     {
@@ -30,4 +29,5 @@ public class Ennemi {
     public String getVictoire() {
         return victoire;
     }
+
 }
