@@ -50,7 +50,7 @@ public class Monde {
                 arguments.add(line);
                 line=br.readLine();
             }
-            tabMaps.add(new Map (arguments.get(0),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7)));
+            tabMaps.add(new Map (arguments.get(0).trim(),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7)));
 
         }
     }
@@ -77,8 +77,6 @@ public class Monde {
 
         //Ajout des maps
 
-
-        int i=0;
         for (File fic : tabEnnemiPaths)
         {
 
@@ -90,8 +88,8 @@ public class Monde {
                 arguments.add(line);
                 line=br.readLine();
             }
-            tabEnnemi.add(new Ennemi (arguments.get(0),valueOf(arguments.get(1)),arguments.get(2),arguments.get(3)));
-            ++i;
+            tabEnnemi.add(new Ennemi (arguments.get(0),parseInt(arguments.get(1)),arguments.get(2),arguments.get(3)));
+
         }
     }
 

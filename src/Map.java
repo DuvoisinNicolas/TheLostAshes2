@@ -15,7 +15,6 @@ public class Map {
         sortieChoix2=_sortieChoix2;
         texte = setText(texte);
         monstreTemp=_monstre;
-        trouverMonstre();
 
 
     }
@@ -29,7 +28,6 @@ public class Map {
     private String choix2;
     private String sortieChoix1;
     private String sortieChoix2;
-    private boolean visite=false;
 
 
 
@@ -49,7 +47,6 @@ public class Map {
     }
     public void calculerResultatCombat()
     {
-
         if (!monstreTemp.equals("AucunMonstre") && Main.getP().getAtk() >= ennemi.getAtk())
         {
             texte += '\n' + ennemi.getVictoire();
@@ -89,10 +86,6 @@ public class Map {
         return sortieChoix2;
     }
 
-    public void setVisite(boolean visite) {
-        this.visite = visite;
-    }
-
     public static String setText (String texte)
     {
         char[] charArray= texte.toCharArray();
@@ -120,11 +113,6 @@ public class Map {
             }
         }
         return valueOf(charArray);
-    }
-
-    public boolean getVisite ()
-    {
-        return this.visite;
     }
 
 }

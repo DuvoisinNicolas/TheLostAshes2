@@ -134,10 +134,12 @@ public class Main extends Application {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
             }
+
         }
         int randVal = (int)(Math.random() * (compteur));
 
         M.setCurrentMap(maps[randVal]);
+        M.getCurrentMap().trouverMonstre();
         M.getCurrentMap().calculerResultatCombat();
         afficherStats();
     }
