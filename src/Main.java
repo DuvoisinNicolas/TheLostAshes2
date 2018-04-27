@@ -3,8 +3,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -16,8 +14,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -52,7 +48,7 @@ public class Main extends Application {
     {
         primaryStage.setTitle("The Lost Ashes");
 
-        Scene scene = new Scene(root, 800, 600, Color.GREY);
+        Scene scene = new Scene(root, 1280, 720, Color.GREY);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         afficherDecor();
@@ -147,6 +143,9 @@ public class Main extends Application {
 
     public void initMap ()
     {
+
+        root.getChildren().clear();
+        afficherDecor();
         text = new Text(50,450,M.getCurrentMap().getTexte());
         text.setFont(new Font("Calibri" ,13));
 
@@ -174,21 +173,17 @@ public class Main extends Application {
 
     public void afficherDecor ()
     {
-        Rectangle rectGauche = new Rectangle(10,10,150,400);
+        Rectangle rectGauche = new Rectangle(10,10,250,700);
         rectGauche.setFill(Color.TRANSPARENT);
         rectGauche.setStroke(Color.BLACK);
-        rectGauche.setArcWidth(30.0);
-        rectGauche.setArcHeight(20.0);
         root.getChildren().add(rectGauche);
 
-        Rectangle rectDroite = new Rectangle(640,10,150,400);
+        Rectangle rectDroite = new Rectangle(1020,10,250,700);
         rectDroite.setFill(Color.TRANSPARENT);
         rectDroite.setStroke(Color.BLACK);
-        rectDroite.setArcWidth(30.0);
-        rectDroite.setArcHeight(20.0);
         root.getChildren().add(rectDroite);
 
-        Rectangle rectBas = new Rectangle(10,420,780,170);
+        Rectangle rectBas = new Rectangle(270,70,740,640);
         rectBas.setFill(Color.TRANSPARENT);
         rectBas.setStroke(Color.BLACK);
         rectBas.setArcWidth(30.0);
