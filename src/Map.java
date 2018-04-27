@@ -43,16 +43,13 @@ public class Map {
 
         if(monstreTemp.equals("AucunMonstre"))
         {
-            System.out.println("salut");
             ennemi=ennemiParDefaut;
         }
 
     }
     public void calculerResultatCombat()
     {
-        System.out.println(monstreTemp);
-        System.out.println(Main.getP().getAtk());
-        System.out.println(ennemi.getAtk());
+
         if (!monstreTemp.equals("AucunMonstre") && Main.getP().getAtk() >= ennemi.getAtk())
         {
             texte += '\n' + ennemi.getVictoire();

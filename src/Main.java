@@ -26,20 +26,14 @@ public class Main extends Application {
     private static Monde M;
 
     static {
-        try {
             M = new Monde();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
     private Group root = new Group();
 
 
-    private static Text text;
+    private Text text;
     private Text stats= new Text(20,50,"");
     private Text qcm;
     private StackPane P1;
@@ -135,7 +129,7 @@ public class Main extends Application {
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
-            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()) && !M.getTabMaps().get(i).getVisite())
+            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()))
             {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
@@ -146,7 +140,6 @@ public class Main extends Application {
         M.setCurrentMap(maps[randVal]);
         M.getCurrentMap().calculerResultatCombat();
         afficherStats();
-        M.getTabMaps().get(M.getCurrentIndice()).setVisite(true);
     }
 
 

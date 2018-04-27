@@ -5,6 +5,7 @@ public class Ennemi {
     private String victoire;
     private String defaite;
 
+
     public Ennemi ( String _nom, int _atk,String _victoire,String _defaite)
     {
         atk=_atk;

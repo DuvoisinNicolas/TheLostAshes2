@@ -14,7 +14,7 @@ public class Monde {
     private Map currentMap;
 
 
-    public Monde() throws IOException {
+    public Monde(){
 
     }
 
@@ -91,7 +91,6 @@ public class Monde {
                 line=br.readLine();
             }
             tabEnnemi.add(new Ennemi (arguments.get(0),valueOf(arguments.get(1)),arguments.get(2),arguments.get(3)));
-            System.out.println(tabEnnemi.get(i).getNom());
             ++i;
         }
     }
