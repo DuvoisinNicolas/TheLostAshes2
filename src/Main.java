@@ -54,18 +54,18 @@ public class Main extends Application {
         afficherDecor();
 
         Text welcomeText = new Text("Entrez votre nom :");
-        welcomeText.setX(280);
+        welcomeText.setX(540);
         welcomeText.setY(200);
         welcomeText.setStyle("-fx-font-size : 24");
         welcomeText.setFont(new Font("Calibri" , 30));
         root.getChildren().add(welcomeText);
 
         TextField nom = new TextField();
-        nom.relocate(280,300);
+        nom.relocate(540,300);
         root.getChildren().add(nom);
 
         Button valider = new Button("Valider");
-        valider.relocate(450,300);
+        valider.relocate(640,300);
         root.getChildren().add(valider);
         root.getChildren().add(stats);
 
@@ -175,12 +175,12 @@ public class Main extends Application {
     {
         Rectangle rectGauche = new Rectangle(10,10,250,700);
         rectGauche.setFill(Color.TRANSPARENT);
-        rectGauche.setStroke(Color.BLACK);
+        rectGauche.setStroke(Color.GOLD);
         root.getChildren().add(rectGauche);
 
         Rectangle rectDroite = new Rectangle(1020,10,250,700);
         rectDroite.setFill(Color.TRANSPARENT);
-        rectDroite.setStroke(Color.BLACK);
+        rectDroite.setStroke(Color.GOLD);
         root.getChildren().add(rectDroite);
 
         Rectangle rectBas = new Rectangle(270,70,740,640);
