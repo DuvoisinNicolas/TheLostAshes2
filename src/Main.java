@@ -28,7 +28,6 @@ public class Main extends Application {
 
     private Group root = new Group();
 
-
     private Text text;
     private Text stats= new Text(20,50,"");
     private Text qcm;
@@ -98,7 +97,7 @@ public class Main extends Application {
 
 
         primaryStage.show();
-        }
+    }
 
     public void preparerBoutons()
     {
@@ -107,7 +106,6 @@ public class Main extends Application {
             M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
             choisirMap();
             afficherMap();
-
         });
 
         b2.setOnAction((event) ->
@@ -117,6 +115,7 @@ public class Main extends Application {
             afficherMap();
         });
     }
+
 
     public void choisirMap ()
     {
@@ -133,10 +132,10 @@ public class Main extends Application {
 
         }
         int randVal = (int)(Math.random() * (compteur));
-
         M.setCurrentMap(maps[randVal]);
         M.getCurrentMap().trouverMonstre();
         M.getCurrentMap().calculerResultatCombat();
+        M.getCurrentMap().calculerResultatStat();
         afficherStats();
     }
 
@@ -224,6 +223,7 @@ public class Main extends Application {
     public static Personnage getP() {
         return P;
     }
+
 
 
 }

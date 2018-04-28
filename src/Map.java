@@ -3,7 +3,7 @@ import static java.lang.String.valueOf;
 
 public class Map {
 
-    public Map(String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre)
+    public Map(String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre, String _stat)
     {
 
         entree=_entree;
@@ -15,9 +15,10 @@ public class Map {
         sortieChoix2=_sortieChoix2;
         texte = setText(texte);
         monstreTemp=_monstre;
-
+        stat=_stat;
 
     }
+    private String stat;
     private Ennemi ennemiParDefaut = new Ennemi("AucunMonstre",0,"Erreur","Erreur");
     private String monstreTemp;
     private Ennemi ennemi;
@@ -58,6 +59,21 @@ public class Map {
         }
     }
 
+    public void calculerResultatStat()
+    {
+        int randVal = (int)(Math.random() * (100));
+        if (!stat.equals("AucuneStat") && Main.getP().getStat(stat)>=randVal)
+        {
+            System.out.println("Stat >= random car " + Main.getP().getStat(stat) + " >= " + randVal );
+            sortieChoix2=sortieChoix1;
+        }
+        else if (!stat.equals("AucuneStat") && Main.getP().getStat(stat)<randVal)
+        {
+            System.out.println("Stat < random car " + Main.getP().getStat(stat) + " < " + randVal );
+            sortieChoix1=sortieChoix2;
+        }
+    }
+
     public String getEntree() {
         return entree;
     }
@@ -85,6 +101,7 @@ public class Map {
     public String getSortieChoix2() {
         return sortieChoix2;
     }
+
 
     public static String setText (String texte)
     {

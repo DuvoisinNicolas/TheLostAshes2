@@ -50,7 +50,7 @@ public class Monde {
                 arguments.add(line);
                 line=br.readLine();
             }
-            tabMaps.add(new Map (arguments.get(0).trim(),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7)));
+            tabMaps.add(new Map (arguments.get(0).trim(),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7),arguments.get(8)));
 
         }
     }
@@ -129,4 +129,6 @@ public class Monde {
     public ArrayList<Ennemi> getTabEnnemi() {
         return tabEnnemi;
     }
+
+
 }

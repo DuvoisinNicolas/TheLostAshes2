@@ -6,3 +6,4 @@ Droite
 Foret
 Montagne
 AucunMonstre
+AucuneStat
