@@ -51,11 +51,10 @@ public class Monde {
             String line = br.readLine();
             while (line != null)
             {
-                arguments.add(line.trim());
+                arguments.add(line);
                 line=br.readLine();
             }
             tabMaps.add(new Map (arguments.get(0),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7),arguments.get(8),arguments.get(9),arguments.get(10)));
-
         }
     }
 

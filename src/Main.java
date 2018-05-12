@@ -135,14 +135,13 @@ public class Main extends Application {
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
-            System.out.println(M.getTabMaps().get(i).getEntree()+M.getCurrentSortie());
-            if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()))
+            System.out.println('['+M.getTabMaps().get(i).getEntree()+"]["+M.getCurrentSortie()+']');
+            if (M.getTabMaps().get(i).getEntree().replaceAll("[^\\x20-\\x7e]", "").equals(M.getCurrentSortie().replaceAll("[^\\x20-\\x7e]", "")))
             {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
                 System.out.println(compteur+" maps trouvées ");
             }
-
         }
         System.out.println("Fin des comparaisons ... Maps trouvées = "+compteur);
         int randVal = (int)(Math.random() * (compteur));
