@@ -3,7 +3,7 @@ import static java.lang.String.valueOf;
 
 public class Map {
 
-    public Map(String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre, String _stat)
+    public Map(String _entree , String _texte , String _qcm , String _choix1,String _choix2, String _sortieChoix1,String _sortieChoix2, String _monstre, String _stat , String _victoire , String _defaite)
     {
 
         entree=_entree;
@@ -16,6 +16,9 @@ public class Map {
         texte = setText(texte);
         monstreTemp=_monstre;
         stat=_stat;
+        victoire=_victoire;
+        defaite=_defaite;
+
 
     }
     private String stat;
@@ -29,8 +32,16 @@ public class Map {
     private String choix2;
     private String sortieChoix1;
     private String sortieChoix2;
+    private String victoire;
+    private String defaite;
 
-
+    public void checkVictoireDefaite()
+    {
+        if (victoire.equals("Victoire"))
+            Main.getM().setVictoire(true);
+        if (defaite.equals("Defaite"))
+            Main.getM().setDefaite(true);
+    }
 
     public void trouverMonstre ()
     {

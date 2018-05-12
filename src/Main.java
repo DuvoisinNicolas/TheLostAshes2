@@ -27,7 +27,6 @@ public class Main extends Application {
 
 
     private Group root = new Group();
-
     private Text text;
     private Text stats= new Text(20,50,"");
     private Text qcm;
@@ -95,7 +94,6 @@ public class Main extends Application {
             }
         });
 
-
         primaryStage.show();
     }
 
@@ -103,16 +101,29 @@ public class Main extends Application {
     {
         b1.setOnAction((event) ->
         {
-            M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
+            M.getCurrentMap().checkVictoireDefaite();
+            if (!M.isVictoire() && !M.isDefaite()) {
+                System.out.println("oui"+M.isVictoire()+M.isDefaite());
+                M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
+            }
+            else
+                M.setCurrentSortie("Entree");
             choisirMap();
             afficherMap();
+
         });
 
         b2.setOnAction((event) ->
         {
-            M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix2());
+            M.getCurrentMap().checkVictoireDefaite();
+            if (!M.isVictoire() && !M.isDefaite()) {
+                M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix2());
+            }
+            else
+                M.setCurrentSortie("Entree");
             choisirMap();
             afficherMap();
+
         });
     }
 
@@ -124,13 +135,16 @@ public class Main extends Application {
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
+            System.out.println(M.getTabMaps().get(i).getEntree()+M.getCurrentSortie());
             if (M.getTabMaps().get(i).getEntree().equals(M.getCurrentSortie()))
             {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
+                System.out.println(compteur+" maps trouvées ");
             }
 
         }
+        System.out.println("Fin des comparaisons ... Maps trouvées = "+compteur);
         int randVal = (int)(Math.random() * (compteur));
         M.setCurrentMap(maps[randVal]);
         M.getCurrentMap().trouverMonstre();
@@ -200,11 +214,32 @@ public class Main extends Application {
 
     public void afficherMap()
     {
-        text.setText(M.getCurrentMap().getTexte());
-        qcm.setText(M.getCurrentMap().getQcm());
-        b1.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
-        b2.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
-    }
+        if (!M.isDefaite() && !M.isVictoire()) {
+            text.setText(M.getCurrentMap().getTexte());
+            qcm.setText(M.getCurrentMap().getQcm());
+            b1.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix1());
+            b2.setText(M.getTabMaps().get(M.getCurrentIndice()).getChoix2());
+        }
+        else if (M.isDefaite()) {
+            text.setText("Vous avez perdu !");
+            qcm.setText("Appuyez a nouveau sur un bouton pour rejouer :)");
+            b1.setText("Rejouer");
+            b2.setText("Rejouer");
+            M.setDefaite(false);
+            M.setVictoire(false);
+        }
+        else if (M.isVictoire())
+            {
+                text.setText("Vous avez gagné !");
+                qcm.setText("Appuyez a nouveau sur un bouton pour rejouer :)");
+                b1.setText("Rejouer");
+                b2.setText("Rejouer");
+                M.setDefaite(false);
+                M.setVictoire(false);
+            }
+        }
+
+
 
     public void initMapDecorStat()
     {
@@ -223,7 +258,5 @@ public class Main extends Application {
     public static Personnage getP() {
         return P;
     }
-
-
 
 }

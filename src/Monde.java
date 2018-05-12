@@ -12,11 +12,15 @@ public class Monde {
     private ArrayList<Map> tabMaps = new ArrayList<>();
     private String currentSortie;
     private Map currentMap;
+    private boolean victoire = false;
+    private boolean defaite = false;
+
 
 
     public Monde(){
 
     }
+
 
     public void buildWorld () throws IOException {
         //Récupere tout les fichiers .txt
@@ -47,14 +51,13 @@ public class Monde {
             String line = br.readLine();
             while (line != null)
             {
-                arguments.add(line);
+                arguments.add(line.trim());
                 line=br.readLine();
             }
-            tabMaps.add(new Map (arguments.get(0).trim(),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7),arguments.get(8)));
+            tabMaps.add(new Map (arguments.get(0),arguments.get(1),arguments.get(2),arguments.get(3),arguments.get(4),arguments.get(5),arguments.get(6),arguments.get(7),arguments.get(8),arguments.get(9),arguments.get(10)));
 
         }
     }
-
 
     public void buildEnnemi() throws IOException {
 
@@ -130,5 +133,19 @@ public class Monde {
         return tabEnnemi;
     }
 
+    public boolean isVictoire() {
+        return victoire;
+    }
 
+    public boolean isDefaite() {
+        return defaite;
+    }
+
+    public void setDefaite(boolean defaite) {
+        this.defaite = defaite;
+    }
+
+    public void setVictoire(boolean victoire) {
+        this.victoire = victoire;
+    }
 }

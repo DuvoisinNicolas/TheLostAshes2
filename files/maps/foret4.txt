@@ -7,3 +7,5 @@ Foret2
 Montagne
 AucunMonstre
 AucuneStat
+Victoire
+AucuneDefaite

@@ -1,9 +1,11 @@
-Foret
-Vous vous réveillez  assommé , sans savoir d'où vous venez ... Vous appercevez deux chemins en vous relevant. Celui de gauche semble mener à une forêt , et celui de droite à des collines
-Trop genial , tu veux prier ?
+﻿Foret
+Vous voilà devant une église très impressionnante.
+Tu veux prier ?
 Oui
 Non
 Foret2
 Montagne
 AucunMonstre
 AucuneStat
+AucuneVictoire
+AucuneDefaite

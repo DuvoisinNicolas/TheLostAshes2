@@ -1,9 +1,11 @@
-Foret2
-Bravo tu as prié !
-Tu pries
+﻿Foret2
+Tu essayes alors de prier...
+Va y.
 Prier
 Prier
 Foret3
 Montagne2
 AucunMonstre
 foi
+AucuneVictoire
+AucuneDefaite

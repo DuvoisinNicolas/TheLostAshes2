@@ -7,3 +7,5 @@ Foret
 Montagne
 AucunMonstre
 AucuneStat
+AucuneVictoire
+AucuneDefaite

@@ -1,9 +1,11 @@
-Montagne2
-tu as pas réussi lol
-Mdr !
-Oui
-Non
+﻿Montagne2
+Tu as essayé de prier , mais tu n'as pas réussi...
+Dommage !
+chemin bloqué
+chemin bloqué
 Foret2
 Montagne
 AucunMonstre
 AucuneStat
+AucuneVictoire
+AucuneDefaite
