@@ -75,12 +75,10 @@ public class Map {
         int randVal = (int)(Math.random() * (100));
         if (!stat.equals("AucuneStat") && Main.getP().getStat(stat)>=randVal)
         {
-            System.out.println("Stat >= random car " + Main.getP().getStat(stat) + " >= " + randVal );
             sortieChoix2=sortieChoix1;
         }
         else if (!stat.equals("AucuneStat") && Main.getP().getStat(stat)<randVal)
         {
-            System.out.println("Stat < random car " + Main.getP().getStat(stat) + " < " + randVal );
             sortieChoix1=sortieChoix2;
         }
     }

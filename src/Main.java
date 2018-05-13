@@ -36,7 +36,8 @@ public class Main extends Application {
     private Button b2;
 
 
-    public static void main (String[] args) throws IOException {
+    public static void main (String[] args) throws IOException
+    {
         M.buildWorld();
         M.buildEnnemi();
         Application.launch();
@@ -103,7 +104,6 @@ public class Main extends Application {
         {
             M.getCurrentMap().checkVictoireDefaite();
             if (!M.isVictoire() && !M.isDefaite() && P.getHp() > 0) {
-                System.out.println("oui"+M.isVictoire()+M.isDefaite());
                 M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
             }
             else if (M.isDefaite() || P.getHp() <= 0)
@@ -127,10 +127,10 @@ public class Main extends Application {
                 M.setCurrentSortie("Victoire");
             choisirMap();
             afficherMap();
+            afficherStats();
 
         });
     }
-
 
     public void choisirMap ()
     {
@@ -150,10 +150,8 @@ public class Main extends Application {
         M.getCurrentMap().trouverMonstre();
         M.getCurrentMap().calculerResultatCombat();
         M.getCurrentMap().calculerResultatStat();
-        System.out.println(M.getCurrentMap().getEntree());
-        afficherStats();
-    }
 
+    }
 
     public void initMap ()
     {
@@ -162,8 +160,6 @@ public class Main extends Application {
         afficherDecor();
         text = new Text(50,450,M.getCurrentMap().getTexte());
         text.setFont(new Font("Calibri" ,13));
-
-
 
         qcm = new Text(50,530,M.getCurrentMap().getQcm());
 
@@ -179,10 +175,6 @@ public class Main extends Application {
         P2.getChildren().add(b2);
         P2.setLayoutX(500);
         P2.setLayoutY(550);
-    }
-
-    public static Monde getM() {
-        return M;
     }
 
     public void afficherDecor ()
@@ -240,8 +232,6 @@ public class Main extends Application {
             }
         }
 
-
-
     public void initMapDecorStat()
     {
 
@@ -256,8 +246,14 @@ public class Main extends Application {
         root.getChildren().add(P2);
     }
 
-    public static Personnage getP() {
+    public static Personnage getP()
+    {
         return P;
+    }
+
+    public static Monde getM()
+    {
+        return M;
     }
 
 }

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a063a49d-ffce-403d-8981-88fad38ea8b6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TheLostAshes2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TheLostAshes2/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TheLostAshes2/Personnage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TheLostAshes2/Personnage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,10 +18,16 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="120" column="53" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
+            <state relative-caret-position="170">
+              <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
               <folding>
+                <element signature="initializer##0;class#Main#0" />
+                <element signature="method#main#0;class#Main#0" />
+                <element signature="method#start#0;class#Main#0" />
                 <element signature="method#initMap#0;class#Main#0" />
+                <element signature="method#afficherDecor#0;class#Main#0" />
+                <element signature="method#afficherMap#0;class#Main#0" />
+                <element signature="method#initMapDecorStat#0;class#Main#0" />
               </folding>
             </state>
           </provider>
@@ -41,8 +45,17 @@
       <file leaf-file-name="DEFAITE.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/files/maps/DEFAITE.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Personnage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Personnage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -56,20 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Personnage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Personnage.java">
+      <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="12" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grzegerg.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/files/maps/grzegerg.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="1377">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
             </state>
           </provider>
         </entry>
@@ -83,29 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="foret4.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/files/maps/foret4.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Map.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Monde.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Monde.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+            <state relative-caret-position="366">
+              <caret line="134" column="29" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="29" />
               <folding>
                 <element signature="method#Monde#0;class#Monde#0" />
                 <element signature="method#buildEnnemi#0;class#Monde#0" />
@@ -115,13 +101,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="foret4.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/files/maps/foret4.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ennemi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ennemi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>victoire</find>
       <find>currentSortie</find>
       <find>tabMaps</find>
+      <find>stats</find>
+      <find>victoire</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,12 +140,12 @@
         <option value="$PROJECT_DIR$/files/maps/prier.txt" />
         <option value="$PROJECT_DIR$/files/maps/foret4.txt" />
         <option value="$PROJECT_DIR$/files/maps/Echec_Priere.txt" />
-        <option value="$PROJECT_DIR$/src/Map.java" />
         <option value="$PROJECT_DIR$/files/maps/grzegerg.txt" />
-        <option value="$PROJECT_DIR$/src/Monde.java" />
         <option value="$PROJECT_DIR$/files/maps/DEFAITE.txt" />
         <option value="$PROJECT_DIR$/files/maps/VICTOIRE.txt" />
         <option value="$PROJECT_DIR$/src/Personnage.java" />
+        <option value="$PROJECT_DIR$/src/Monde.java" />
+        <option value="$PROJECT_DIR$/src/Map.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
@@ -289,12 +294,12 @@
       <workItem from="1526137942942" duration="4156000" />
       <workItem from="1526143110087" duration="2584000" />
       <workItem from="1526151692223" duration="6303000" />
-      <workItem from="1526217583951" duration="1129000" />
+      <workItem from="1526217583951" duration="2906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21450000" />
+    <option name="totallyTimeSpent" value="23227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -302,7 +307,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32897604" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -310,7 +315,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29302832" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29302832" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -336,14 +341,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="7" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/files/maps/grzegerg.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/files/maps/prier.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -403,7 +406,13 @@
         <state relative-caret-position="2482">
           <caret line="146" selection-start-line="146" selection-end-line="146" />
           <folding>
+            <element signature="initializer##0;class#Main#0" />
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
             <element signature="method#initMap#0;class#Main#0" />
+            <element signature="method#afficherDecor#0;class#Main#0" />
+            <element signature="method#afficherMap#0;class#Main#0" />
+            <element signature="method#initMapDecorStat#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -453,7 +462,13 @@
         <state relative-caret-position="1190">
           <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
           <folding>
+            <element signature="initializer##0;class#Main#0" />
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
             <element signature="method#initMap#0;class#Main#0" />
+            <element signature="method#afficherDecor#0;class#Main#0" />
+            <element signature="method#afficherMap#0;class#Main#0" />
+            <element signature="method#initMapDecorStat#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -531,7 +546,13 @@
         <state relative-caret-position="2193">
           <caret line="129" column="27" lean-forward="true" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
           <folding>
+            <element signature="initializer##0;class#Main#0" />
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
             <element signature="method#initMap#0;class#Main#0" />
+            <element signature="method#afficherDecor#0;class#Main#0" />
+            <element signature="method#afficherMap#0;class#Main#0" />
+            <element signature="method#initMapDecorStat#0;class#Main#0" />
           </folding>
         </state>
       </provider>
@@ -612,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/event/EventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/files/maps/Echec_Priere.txt" />
     <entry file="file://$PROJECT_DIR$/out/production/TheLostAshes2/Main.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -632,17 +646,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ennemi.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="357">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/files/maps/prier.txt">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/javafx-src.zip!/javafx/application/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="208">
+          <caret line="304" column="25" selection-start-line="304" selection-start-column="25" selection-end-line="304" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -653,31 +667,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/maps/fic1.txt">
+    <entry file="file://$PROJECT_DIR$/files/maps/prier.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/maps/DEFAITE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/maps/VICTOIRE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -695,17 +688,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Personnage.java">
+    <entry file="file://$PROJECT_DIR$/files/maps/fic1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="12" />
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/maps/DEFAITE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/maps/VICTOIRE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Monde.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+        <state relative-caret-position="366">
+          <caret line="134" column="29" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="29" />
           <folding>
             <element signature="method#Monde#0;class#Monde#0" />
             <element signature="method#buildEnnemi#0;class#Monde#0" />
@@ -714,12 +721,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ennemi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Personnage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="120" column="53" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="53" />
+        <state relative-caret-position="170">
+          <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
           <folding>
+            <element signature="initializer##0;class#Main#0" />
+            <element signature="method#main#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
             <element signature="method#initMap#0;class#Main#0" />
+            <element signature="method#afficherDecor#0;class#Main#0" />
+            <element signature="method#afficherMap#0;class#Main#0" />
+            <element signature="method#initMapDecorStat#0;class#Main#0" />
           </folding>
         </state>
       </provider>
