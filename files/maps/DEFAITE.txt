@@ -1,0 +1,11 @@
+Defaite
+Dommage vous avez perdu...
+Voulez vous rejouer , ou rejouer ? :)
+Rejouer
+Rejouer
+Entree
+Entree
+AucunMonstre
+AucuneStat
+AucuneVictoire
+AucuneDefaite

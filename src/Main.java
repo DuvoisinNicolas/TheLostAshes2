@@ -102,12 +102,14 @@ public class Main extends Application {
         b1.setOnAction((event) ->
         {
             M.getCurrentMap().checkVictoireDefaite();
-            if (!M.isVictoire() && !M.isDefaite()) {
+            if (!M.isVictoire() && !M.isDefaite() && P.getHp() > 0) {
                 System.out.println("oui"+M.isVictoire()+M.isDefaite());
                 M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix1());
             }
+            else if (M.isDefaite() || P.getHp() <= 0)
+                M.setCurrentSortie("Defaite");
             else
-                M.setCurrentSortie("Entree");
+                M.setCurrentSortie("Victoire");
             choisirMap();
             afficherMap();
 
@@ -116,11 +118,13 @@ public class Main extends Application {
         b2.setOnAction((event) ->
         {
             M.getCurrentMap().checkVictoireDefaite();
-            if (!M.isVictoire() && !M.isDefaite()) {
+            if (!M.isVictoire() && !M.isDefaite() && P.getHp() > 0) {
                 M.setCurrentSortie(M.getTabMaps().get(M.getCurrentIndice()).getSortieChoix2());
             }
+            else if (M.isDefaite() || P.getHp() <= 0)
+                M.setCurrentSortie("Defaite");
             else
-                M.setCurrentSortie("Entree");
+                M.setCurrentSortie("Victoire");
             choisirMap();
             afficherMap();
 
@@ -135,20 +139,18 @@ public class Main extends Application {
 
         for (int i=0;i<M.getTabMaps().size();++i)
         {
-            System.out.println('['+M.getTabMaps().get(i).getEntree()+"]["+M.getCurrentSortie()+']');
             if (M.getTabMaps().get(i).getEntree().replaceAll("[^\\x20-\\x7e]", "").equals(M.getCurrentSortie().replaceAll("[^\\x20-\\x7e]", "")))
             {
                 maps[compteur]=M.getTabMaps().get(i);
                 ++compteur;
-                System.out.println(compteur+" maps trouvées ");
             }
         }
-        System.out.println("Fin des comparaisons ... Maps trouvées = "+compteur);
         int randVal = (int)(Math.random() * (compteur));
         M.setCurrentMap(maps[randVal]);
         M.getCurrentMap().trouverMonstre();
         M.getCurrentMap().calculerResultatCombat();
         M.getCurrentMap().calculerResultatStat();
+        System.out.println(M.getCurrentMap().getEntree());
         afficherStats();
     }
 

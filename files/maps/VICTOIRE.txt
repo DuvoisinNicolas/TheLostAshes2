@@ -1,0 +1,11 @@
+Victoire
+Bravo vous avez gagné !
+Voulez vous rejouer , ou rejouer ? :)
+Rejouer
+Rejouer
+Entree
+Entree
+AucunMonstre
+AucuneStat
+AucuneVictoire
+AucuneDefaite
