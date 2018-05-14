@@ -8,7 +8,7 @@ public class Monde {
 
     private ArrayList<File> tabMapsPaths = new ArrayList<>();
     private ArrayList<File> tabEnnemiPaths = new ArrayList<>();
-    private ArrayList<Ennemi> tabEnnemi= new ArrayList();
+    private ArrayList<Ennemi> tabEnnemi= new ArrayList<>();
     private ArrayList<Map> tabMaps = new ArrayList<>();
     private String currentSortie;
     private Map currentMap;

@@ -52,21 +52,45 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         afficherDecor();
 
-        Text welcomeText = new Text("Entrez votre nom :");
-        welcomeText.setX(540);
-        welcomeText.setY(200);
+        //Titre
+        Text welcomeText = new Text("Création du Personnage ");
+        welcomeText.setX(480);
+        welcomeText.setY(120);
         welcomeText.setStyle("-fx-font-size : 24");
         welcomeText.setFont(new Font("Calibri" , 30));
         root.getChildren().add(welcomeText);
 
+        //Nom
         TextField nom = new TextField();
-        nom.relocate(540,300);
+        nom.relocate(600,200);
         root.getChildren().add(nom);
+        Text texteNom = new Text("Pseudo");
+        texteNom.setX(450);
+        texteNom.setY(220);
+        texteNom.setFont(new Font("Calibri",18));
+        root.getChildren().add(texteNom);
+
+        //Nom des Classes
+        Text nomClasses = new Text("Guerrier\t\t\tArcher\t\t\tMage\t\t\tPrêtre");
+        nomClasses.relocate(450,280);
+        texteNom.setFont(new Font ("Calibri",18));
+        root.getChildren().add(nomClasses);
+
+        //Stats
+        Text stats = new Text(
+                        "Attaque \t\t\t5 \t\t\t\t4 \t\t\t\t6 \t\t\t\t3 \n\n" +
+                        "HP      \t\t\t6 \t\t\t\t4 \t\t\t\t3 \t\t\t\t6 \n\n" +
+                        "Magie   \t\t\t8 \t\t\t\t15\t\t\t\t70\t\t\t\t45\n\n" +
+                        "Foi     \t\t\t40\t\t\t\t5 \t\t\t\t30\t\t\t\t90\n\n" +
+                        "Charisme\t\t\t40\t\t\t\t5 \t\t\t\t30\t\t\t\t90\n\n");
+        stats.relocate(340,350);
+        root.getChildren().add(stats);
+
 
         Button valider = new Button("Valider");
-        valider.relocate(640,300);
+        valider.relocate(580,600);
+        valider.resize(100,100);
         root.getChildren().add(valider);
-        root.getChildren().add(stats);
 
 
         //Test de pression de bouton
@@ -74,7 +98,6 @@ public class Main extends Application {
         {
                 P.setName(nom.getText());
                 M.setCurrentSortie("Entree");
-                root.getChildren().clear();
                 initMapDecorStat();
                 preparerBoutons();
 
@@ -97,6 +120,7 @@ public class Main extends Application {
 
         primaryStage.show();
     }
+
 
     public void preparerBoutons()
     {
