@@ -2,19 +2,20 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -34,6 +35,16 @@ public class Main extends Application {
     private StackPane P2;
     private Button b1;
     private Button b2;
+    private String Class = "Aucune";
+    private ArrayList<Integer> guerrierStats = new ArrayList<>();
+    private ArrayList<Integer> archerStats = new ArrayList<>();
+    private ArrayList<Integer> pretreStats = new ArrayList<>();
+    private ArrayList<Integer> mageStats = new ArrayList<>();
+    private Alert alertName = new Alert(Alert.AlertType.ERROR);
+    private Alert alertClass = new Alert(Alert.AlertType.ERROR);
+
+
+
 
 
     public static void main (String[] args) throws IOException
@@ -70,21 +81,84 @@ public class Main extends Application {
         texteNom.setFont(new Font("Calibri",18));
         root.getChildren().add(texteNom);
 
+
         //Nom des Classes
-        Text nomClasses = new Text("Guerrier\t\t\tArcher\t\t\tMage\t\t\tPrêtre");
-        nomClasses.relocate(450,280);
-        texteNom.setFont(new Font ("Calibri",18));
+        Text nomClasses = new Text("Guerrier\t\t\tArcher\t\t\tPrêtre\t\t\tMage");
+        nomClasses.relocate(430,280);
+        nomClasses.setFont(new Font ("Calibri",18));
         root.getChildren().add(nomClasses);
 
         //Stats
+
+        guerrierStats.add(4);
+        guerrierStats.add(5);
+        guerrierStats.add(10);
+        guerrierStats.add(40);
+        guerrierStats.add(70);
+
+        archerStats.add(5);
+        archerStats.add(4);
+        archerStats.add(25);
+        archerStats.add(10);
+        archerStats.add(90);
+
+        pretreStats.add(3);
+        pretreStats.add(6);
+        pretreStats.add(30);
+        pretreStats.add(80);
+        pretreStats.add(60);
+
+        mageStats.add(6);
+        mageStats.add(3);
+        mageStats.add(80);
+        mageStats.add(25);
+        mageStats.add(10);
+
         Text stats = new Text(
-                        "Attaque \t\t\t5 \t\t\t\t4 \t\t\t\t6 \t\t\t\t3 \n\n" +
-                        "HP      \t\t\t6 \t\t\t\t4 \t\t\t\t3 \t\t\t\t6 \n\n" +
-                        "Magie   \t\t\t8 \t\t\t\t15\t\t\t\t70\t\t\t\t45\n\n" +
-                        "Foi     \t\t\t40\t\t\t\t5 \t\t\t\t30\t\t\t\t90\n\n" +
-                        "Charisme\t\t\t40\t\t\t\t5 \t\t\t\t30\t\t\t\t90\n\n");
-        stats.relocate(340,350);
+                        "Attaque \t\t\t\t"+guerrierStats.get(0)+"\t\t\t\t\t"+archerStats.get(0)+"\t\t\t\t\t"+pretreStats.get(0)+" \t\t\t\t\t"+mageStats.get(0) +"\n\n" +
+                        "HP      \t\t\t\t"+guerrierStats.get(1)+"\t\t\t\t\t"+archerStats.get(1)+"\t\t\t\t\t"+pretreStats.get(1)+" \t\t\t\t\t"+mageStats.get(1) +"\n\n" +
+                        "Magie   \t\t\t\t"+guerrierStats.get(2)+"\t\t\t\t\t"+archerStats.get(2)+"\t\t\t\t\t"+pretreStats.get(2)+" \t\t\t\t\t"+mageStats.get(2) +"\n\n" +
+                        "Foi     \t\t\t\t"+guerrierStats.get(3)+"\t\t\t\t\t"+archerStats.get(3)+"\t\t\t\t\t"+pretreStats.get(3)+" \t\t\t\t\t"+mageStats.get(3) +"\n\n" +
+                        "Charisme  \t\t\t"+guerrierStats.get(4)+"\t\t\t\t\t"+archerStats.get(4)+"\t\t\t\t\t"+pretreStats.get(4)+" \t\t\t\t\t"+mageStats.get(4) +"\n\n");
+        stats.relocate(300,350);
+        stats.setFont(new Font ("Calibri",15));
         root.getChildren().add(stats);
+
+        HBox boutons = new HBox();
+        boutons.setSpacing(115);
+        boutons.relocate(435,550);
+        CheckBox Guerrier = new CheckBox();
+        CheckBox Archer = new CheckBox();
+        CheckBox Mage = new CheckBox();
+        CheckBox Pretre = new CheckBox();
+        boutons.getChildren().addAll(Guerrier,Archer,Mage,Pretre);
+        root.getChildren().add(boutons);
+
+
+        Guerrier.setOnAction((event -> {
+            Archer.setSelected(false);
+            Mage.setSelected(false);
+            Pretre.setSelected(false);
+            Class = "Guerrier";
+        }));
+        Archer.setOnAction((event -> {
+            Guerrier.setSelected(false);
+            Mage.setSelected(false);
+            Pretre.setSelected(false);
+            Class = "Archer";
+        }));
+        Pretre.setOnAction((event -> {
+            Archer.setSelected(false);
+            Mage.setSelected(false);
+            Guerrier.setSelected(false);
+            Class = "Prêtre";
+        }));
+        Mage.setOnAction((event -> {
+            Archer.setSelected(false);
+            Guerrier.setSelected(false);
+            Pretre.setSelected(false);
+            Class = "Mage";
+        }));
 
 
         Button valider = new Button("Valider");
@@ -93,14 +167,31 @@ public class Main extends Application {
         root.getChildren().add(valider);
 
 
+
+        alertClass.setTitle("Erreur !");
+        alertClass.setHeaderText("Merci de choisir une classe !");
+        alertClass.setContentText("Si vous ne savez pas quoi choisir , prenez prêtre , personne ne prend prêtre.");
+
+        alertName.setTitle("Erreur !");
+        alertName.setHeaderText("Merci d'entrer un pseudo !");
+        alertName.setContentText("Si vous n'avez pas d'inspiration , appellez vous xXDarkSasukeXx...");
+
+
         //Test de pression de bouton
         valider.setOnAction((event)->
         {
-                P.setName(nom.getText());
+            P.setName(nom.getText());
+            if (!Class.equals("Aucune") && !P.getName().equals("")) {
+                calculerStats();
                 M.setCurrentSortie("Entree");
                 initMapDecorStat();
                 preparerBoutons();
-
+                System.out.println(P.getStat("magie") + P.getStat("foi") + P.getStat("charisme"));
+            }
+            else if (Class.equals("Aucune"))
+                alertClass.showAndWait();
+            else
+                alertName.showAndWait();
         });
 
 
@@ -111,9 +202,17 @@ public class Main extends Application {
                 if (combo.match(t))
                 {
                     P.setName(nom.getText());
-                    M.setCurrentSortie("Entree");
-                    initMapDecorStat();
-                    preparerBoutons();
+                    if (!Class.equals("Aucune") && !P.getName().equals("")) {
+
+                        calculerStats();
+                        M.setCurrentSortie("Entree");
+                        initMapDecorStat();
+                        preparerBoutons();
+                    }
+                    else if (Class.equals("Aucune"))
+                        alertClass.showAndWait();
+                    else if (P.getName().equals(""))
+                        alertName.showAndWait();
                 }
             }
         });
@@ -122,6 +221,40 @@ public class Main extends Application {
     }
 
 
+    public void calculerStats ()
+    {
+        switch (Class)
+        {
+            case "Guerrier":
+                P.setAtk(guerrierStats.get(0));
+                P.setHp(guerrierStats.get(1));
+                P.setMagie(guerrierStats.get(2));
+                P.setFoi(guerrierStats.get(3));
+                P.setCharisme(guerrierStats.get(4));
+                break;
+            case "Archer":
+                P.setAtk(archerStats.get(0));
+                P.setHp(archerStats.get(1));
+                P.setMagie(archerStats.get(2));
+                P.setFoi(archerStats.get(3));
+                P.setCharisme(archerStats.get(4));
+                break;
+            case "Prêtre":
+                P.setAtk(pretreStats.get(0));
+                P.setHp(pretreStats.get(1));
+                P.setMagie(pretreStats.get(2));
+                P.setFoi(pretreStats.get(3));
+                P.setCharisme(pretreStats.get(4));
+                break;
+            case "Mage":
+                P.setAtk(mageStats.get(0));
+                P.setHp(mageStats.get(1));
+                P.setMagie(mageStats.get(2));
+                P.setFoi(mageStats.get(3));
+                P.setCharisme(mageStats.get(4));
+                break;
+        }
+    }
     public void preparerBoutons()
     {
         b1.setOnAction((event) ->
