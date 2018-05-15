@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -83,10 +84,12 @@ public class Main extends Application {
 
 
         //Nom des Classes
+        /*
         Text nomClasses = new Text("Guerrier\t\t\tArcher\t\t\tPrêtre\t\t\tMage");
         nomClasses.relocate(430,280);
         nomClasses.setFont(new Font ("Calibri",18));
         root.getChildren().add(nomClasses);
+        */
 
         //Stats
 
@@ -114,6 +117,8 @@ public class Main extends Application {
         mageStats.add(25);
         mageStats.add(10);
 
+
+        /*
         Text stats = new Text(
                         "Attaque \t\t\t\t"+guerrierStats.get(0)+"\t\t\t\t\t"+archerStats.get(0)+"\t\t\t\t\t"+pretreStats.get(0)+" \t\t\t\t\t"+mageStats.get(0) +"\n\n" +
                         "HP      \t\t\t\t"+guerrierStats.get(1)+"\t\t\t\t\t"+archerStats.get(1)+"\t\t\t\t\t"+pretreStats.get(1)+" \t\t\t\t\t"+mageStats.get(1) +"\n\n" +
@@ -123,10 +128,65 @@ public class Main extends Application {
         stats.relocate(300,350);
         stats.setFont(new Font ("Calibri",15));
         root.getChildren().add(stats);
+        */
+
+        VBox stats = new VBox();
+
+        HBox header = new HBox();
+        HBox atk = new HBox();
+        HBox hp = new HBox();
+        HBox magie = new HBox();
+        HBox foi = new HBox();
+        HBox charisme = new HBox();
+
+
+
+        Text emptyHeader = new Text("                ");
+        Text guerrierHeader = new Text("Attaque  ");
+        Text archerHeader = new Text("HP    ");
+        Text pretreHeader = new Text("Magie  ");
+        Text mageHeader = new Text("Foi      ");
+
+        Text statAtkHeader = new Text("Attaque");
+        Text atkGuerrier = new Text(guerrierStats.get(0).toString());
+        Text atkArcher = new Text(archerStats.get(0).toString());
+        Text atkPretre = new Text(pretreStats.get(0).toString());
+        Text atkMage = new Text(mageStats.get(0).toString());
+
+        Text statHpHeader = new Text("Hp        ");
+        Text hpGuerrier = new Text(guerrierStats.get(1).toString());
+        Text hpArcher = new Text(archerStats.get(1).toString());
+        Text hpPretre = new Text(pretreStats.get(1).toString());
+        Text hpMage = new Text(mageStats.get(1).toString());
+
+        Text statMagieHeader = new Text("Magie    ");
+        Text magieGuerrier = new Text(guerrierStats.get(2).toString());
+        Text magieArcher = new Text(archerStats.get(2).toString());
+        Text magiePretre = new Text(pretreStats.get(2).toString());
+        Text magieMage = new Text(mageStats.get(2).toString());
+
+        header.getChildren().addAll(emptyHeader,guerrierHeader,archerHeader,pretreHeader,mageHeader);
+        header.setSpacing(85);
+        atk.getChildren().addAll(statAtkHeader,atkGuerrier,atkArcher,atkPretre,atkMage);
+        atk.setSpacing(120);
+        hp.getChildren().addAll(statHpHeader,hpGuerrier,hpArcher,hpPretre,hpMage);
+        hp.setSpacing(120);
+        magie.getChildren().addAll(statMagieHeader,magieGuerrier,magieArcher,magiePretre,magieMage);
+        magie.setSpacing(112);
+
+        stats.getChildren().add(header);
+        stats.getChildren().add(atk);
+        stats.getChildren().add(hp);
+        stats.getChildren().add(magie);
+        stats.relocate(300,280);
+        stats.setSpacing(20);
+        root.getChildren().add(stats);
+
+
 
         HBox boutons = new HBox();
-        boutons.setSpacing(115);
-        boutons.relocate(435,550);
+        boutons.setSpacing(106);
+        boutons.relocate(465,550);
         CheckBox Guerrier = new CheckBox();
         CheckBox Archer = new CheckBox();
         CheckBox Mage = new CheckBox();
