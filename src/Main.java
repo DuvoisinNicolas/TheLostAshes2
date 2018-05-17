@@ -43,6 +43,7 @@ public class Main extends Application {
     private ArrayList<Integer> mageStats = new ArrayList<>();
     private Alert alertName = new Alert(Alert.AlertType.ERROR);
     private Alert alertClass = new Alert(Alert.AlertType.ERROR);
+    private TableView tabStats = new TableView();
 
 
 
@@ -83,14 +84,6 @@ public class Main extends Application {
         root.getChildren().add(texteNom);
 
 
-        //Nom des Classes
-        /*
-        Text nomClasses = new Text("Guerrier\t\t\tArcher\t\t\tPrêtre\t\t\tMage");
-        nomClasses.relocate(430,280);
-        nomClasses.setFont(new Font ("Calibri",18));
-        root.getChildren().add(nomClasses);
-        */
-
         //Stats
 
         guerrierStats.add(4);
@@ -118,18 +111,19 @@ public class Main extends Application {
         mageStats.add(10);
 
 
+
+
+        //Tentative d'ajout de tableau
+
         /*
-        Text stats = new Text(
-                        "Attaque \t\t\t\t"+guerrierStats.get(0)+"\t\t\t\t\t"+archerStats.get(0)+"\t\t\t\t\t"+pretreStats.get(0)+" \t\t\t\t\t"+mageStats.get(0) +"\n\n" +
-                        "HP      \t\t\t\t"+guerrierStats.get(1)+"\t\t\t\t\t"+archerStats.get(1)+"\t\t\t\t\t"+pretreStats.get(1)+" \t\t\t\t\t"+mageStats.get(1) +"\n\n" +
-                        "Magie   \t\t\t\t"+guerrierStats.get(2)+"\t\t\t\t\t"+archerStats.get(2)+"\t\t\t\t\t"+pretreStats.get(2)+" \t\t\t\t\t"+mageStats.get(2) +"\n\n" +
-                        "Foi     \t\t\t\t"+guerrierStats.get(3)+"\t\t\t\t\t"+archerStats.get(3)+"\t\t\t\t\t"+pretreStats.get(3)+" \t\t\t\t\t"+mageStats.get(3) +"\n\n" +
-                        "Charisme  \t\t\t"+guerrierStats.get(4)+"\t\t\t\t\t"+archerStats.get(4)+"\t\t\t\t\t"+pretreStats.get(4)+" \t\t\t\t\t"+mageStats.get(4) +"\n\n");
-        stats.relocate(300,350);
-        stats.setFont(new Font ("Calibri",15));
-        root.getChildren().add(stats);
+        final TableColumn<char,String> statCol = new TableColumn<String>("Map");
+        tabStats.getColumns().setAll("euh");
         */
 
+
+        /*
+
+        //Conteneurs des stats
         VBox stats = new VBox();
 
         HBox header = new HBox();
@@ -141,17 +135,18 @@ public class Main extends Application {
 
 
 
-        Text emptyHeader = new Text("                ");
-        Text guerrierHeader = new Text("Attaque  ");
-        Text archerHeader = new Text("HP    ");
-        Text pretreHeader = new Text("Magie  ");
-        Text mageHeader = new Text("Foi      ");
+        //Texte du tableau des stats
+        Text emptyHeader = new Text(setw("",15));
+        Text guerrierHeader = new Text(setw("Attaque",15));
+        Text archerHeader = new Text(setw("HP",15));
+        Text pretreHeader = new Text(setw("Magie",15));
+        Text mageHeader = new Text(setw("Foi",15));
 
-        Text statAtkHeader = new Text("Attaque");
-        Text atkGuerrier = new Text(guerrierStats.get(0).toString());
-        Text atkArcher = new Text(archerStats.get(0).toString());
-        Text atkPretre = new Text(pretreStats.get(0).toString());
-        Text atkMage = new Text(mageStats.get(0).toString());
+        Text statAtkHeader = new Text(setw("Attaque",15));
+        Text atkGuerrier = new Text(setw(guerrierStats.get(0).toString(),15));
+        Text atkArcher = new Text(setw(archerStats.get(0).toString(),15));
+        Text atkPretre = new Text(setw(pretreStats.get(0).toString(),15));
+        Text atkMage = new Text(setw(mageStats.get(0).toString(),15));
 
         Text statHpHeader = new Text("Hp        ");
         Text hpGuerrier = new Text(guerrierStats.get(1).toString());
@@ -165,25 +160,40 @@ public class Main extends Application {
         Text magiePretre = new Text(pretreStats.get(2).toString());
         Text magieMage = new Text(mageStats.get(2).toString());
 
+        Text statFoiHeader = new Text("Foi         ");
+        Text foiGuerrier = new Text(guerrierStats.get(3).toString());
+        Text foiArcher = new Text(archerStats.get(3).toString());
+        Text foiPretre = new Text(pretreStats.get(3).toString());
+        Text foiMage = new Text(mageStats.get(3).toString());
+
+        Text statCharismeHeader = new Text("Charisme");
+        Text charismeGuerrier = new Text(guerrierStats.get(4).toString());
+        Text charismeArcher = new Text(archerStats.get(4).toString());
+        Text charismePretre = new Text(pretreStats.get(4).toString());
+        Text charismeMage = new Text(mageStats.get(4).toString());
+
+        //Ajout des lignes du tableau
         header.getChildren().addAll(emptyHeader,guerrierHeader,archerHeader,pretreHeader,mageHeader);
-        header.setSpacing(85);
         atk.getChildren().addAll(statAtkHeader,atkGuerrier,atkArcher,atkPretre,atkMage);
-        atk.setSpacing(120);
         hp.getChildren().addAll(statHpHeader,hpGuerrier,hpArcher,hpPretre,hpMage);
-        hp.setSpacing(120);
         magie.getChildren().addAll(statMagieHeader,magieGuerrier,magieArcher,magiePretre,magieMage);
-        magie.setSpacing(112);
+        foi.getChildren().addAll(statFoiHeader,foiGuerrier,foiArcher,foiPretre,foiMage);
+        charisme.getChildren().addAll(statCharismeHeader,charismeGuerrier,charismeArcher,charismePretre,charismeMage);
 
         stats.getChildren().add(header);
         stats.getChildren().add(atk);
         stats.getChildren().add(hp);
         stats.getChildren().add(magie);
+        stats.getChildren().add(foi);
+        stats.getChildren().add(charisme);
         stats.relocate(300,280);
         stats.setSpacing(20);
         root.getChildren().add(stats);
 
+        */
 
 
+        //Ajout des CheckBoxs des classes
         HBox boutons = new HBox();
         boutons.setSpacing(106);
         boutons.relocate(465,550);
@@ -191,10 +201,12 @@ public class Main extends Application {
         CheckBox Archer = new CheckBox();
         CheckBox Mage = new CheckBox();
         CheckBox Pretre = new CheckBox();
-        boutons.getChildren().addAll(Guerrier,Archer,Mage,Pretre);
+        boutons.getChildren().addAll(Guerrier,Archer,Pretre,Mage);
         root.getChildren().add(boutons);
 
 
+
+        //Déclaration des events des checkbox
         Guerrier.setOnAction((event -> {
             Archer.setSelected(false);
             Mage.setSelected(false);
@@ -228,6 +240,7 @@ public class Main extends Application {
 
 
 
+        //Alertes de pseudo/classe
         alertClass.setTitle("Erreur !");
         alertClass.setHeaderText("Merci de choisir une classe !");
         alertClass.setContentText("Si vous ne savez pas quoi choisir , prenez prêtre , personne ne prend prêtre.");
@@ -246,7 +259,7 @@ public class Main extends Application {
                 M.setCurrentSortie("Entree");
                 initMapDecorStat();
                 preparerBoutons();
-                System.out.println(P.getStat("magie") + P.getStat("foi") + P.getStat("charisme"));
+                System.out.println("Attaque :"+P.getAtk()+" HP :"+P.getHp()+" Magie :"+P.getStat("magie") +" Foi : "+ P.getStat("foi") +" Charisme :"+ P.getStat("charisme"));
             }
             else if (Class.equals("Aucune"))
                 alertClass.showAndWait();
@@ -281,6 +294,14 @@ public class Main extends Application {
     }
 
 
+    public String setw (String s,int size)
+    {
+        for (int i=s.length() ; i < size ; ++i)
+        {
+            s+="  ";
+        }
+        return s;
+    }
     public void calculerStats ()
     {
         switch (Class)
