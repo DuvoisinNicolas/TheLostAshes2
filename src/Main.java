@@ -1,8 +1,11 @@
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -17,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Observable;
 
 public class Main extends Application {
 
@@ -84,8 +88,6 @@ public class Main extends Application {
         root.getChildren().add(texteNom);
 
 
-        //Stats
-
         guerrierStats.add(4);
         guerrierStats.add(5);
         guerrierStats.add(10);
@@ -110,92 +112,67 @@ public class Main extends Application {
         mageStats.add(25);
         mageStats.add(10);
 
+        ObservableList<Stats> data =
+                FXCollections.observableArrayList(
+                        new Stats("Attaque",4,5,3,6),
+                        new Stats("Hp",5,4,6,3),
+                        new Stats("Magie",10,25,30,80),
+                        new Stats ("Foi",40,10,80,25),
+                        new Stats ("Charisme",70,90,60,10));
+
+        //Ajout du tableau
+
+        tabStats.setEditable(true);
+
+        TableColumn statCol = new TableColumn("");
+        statCol.setCellValueFactory(
+                new PropertyValueFactory<Stats,String>("name"));
+        statCol.setPrefWidth(120);
+        statCol.setResizable(false);
 
 
+        TableColumn guerrierCol = new TableColumn("Guerrier");
+        guerrierCol.setCellValueFactory(
+                new PropertyValueFactory<Stats,String>("guerrier"));
+        guerrierCol.setPrefWidth(120);
+        guerrierCol.setResizable(false);
+        guerrierCol.setStyle( "-fx-alignment: CENTER;");
 
-        //Tentative d'ajout de tableau
-
-        /*
-        final TableColumn<char,String> statCol = new TableColumn<String>("Map");
-        tabStats.getColumns().setAll("euh");
-        */
-
-
-        /*
-
-        //Conteneurs des stats
-        VBox stats = new VBox();
-
-        HBox header = new HBox();
-        HBox atk = new HBox();
-        HBox hp = new HBox();
-        HBox magie = new HBox();
-        HBox foi = new HBox();
-        HBox charisme = new HBox();
+        TableColumn archerCol = new TableColumn("Archer");
+        archerCol.setCellValueFactory(
+                new PropertyValueFactory<Stats,String>("archer"));
+        archerCol.setPrefWidth(120);
+        archerCol.setResizable(false);
+        archerCol.setStyle( "-fx-alignment: CENTER;");
 
 
+        TableColumn pretreCol = new TableColumn("Prêtre");
+        pretreCol.setCellValueFactory(
+                new PropertyValueFactory<Stats,String>("pretre"));
+        pretreCol.setPrefWidth(120);
+        pretreCol.setResizable(false);
+        pretreCol.setStyle( "-fx-alignment: CENTER;");
 
-        //Texte du tableau des stats
-        Text emptyHeader = new Text(setw("",15));
-        Text guerrierHeader = new Text(setw("Attaque",15));
-        Text archerHeader = new Text(setw("HP",15));
-        Text pretreHeader = new Text(setw("Magie",15));
-        Text mageHeader = new Text(setw("Foi",15));
 
-        Text statAtkHeader = new Text(setw("Attaque",15));
-        Text atkGuerrier = new Text(setw(guerrierStats.get(0).toString(),15));
-        Text atkArcher = new Text(setw(archerStats.get(0).toString(),15));
-        Text atkPretre = new Text(setw(pretreStats.get(0).toString(),15));
-        Text atkMage = new Text(setw(mageStats.get(0).toString(),15));
+        TableColumn mageCol = new TableColumn("Mage");
+        mageCol.setCellValueFactory(
+                new PropertyValueFactory<Stats,String>("mage"));
+        mageCol.setPrefWidth(120);
+        mageCol.setResizable(false);
+        mageCol.setStyle( "-fx-alignment: CENTER;");
 
-        Text statHpHeader = new Text("Hp        ");
-        Text hpGuerrier = new Text(guerrierStats.get(1).toString());
-        Text hpArcher = new Text(archerStats.get(1).toString());
-        Text hpPretre = new Text(pretreStats.get(1).toString());
-        Text hpMage = new Text(mageStats.get(1).toString());
 
-        Text statMagieHeader = new Text("Magie    ");
-        Text magieGuerrier = new Text(guerrierStats.get(2).toString());
-        Text magieArcher = new Text(archerStats.get(2).toString());
-        Text magiePretre = new Text(pretreStats.get(2).toString());
-        Text magieMage = new Text(mageStats.get(2).toString());
+        tabStats.setItems(data);
 
-        Text statFoiHeader = new Text("Foi         ");
-        Text foiGuerrier = new Text(guerrierStats.get(3).toString());
-        Text foiArcher = new Text(archerStats.get(3).toString());
-        Text foiPretre = new Text(pretreStats.get(3).toString());
-        Text foiMage = new Text(mageStats.get(3).toString());
+        tabStats.getColumns().addAll(statCol,guerrierCol,archerCol,pretreCol,mageCol);
+        tabStats.relocate(300,250);
+        root.getChildren().add(tabStats);
 
-        Text statCharismeHeader = new Text("Charisme");
-        Text charismeGuerrier = new Text(guerrierStats.get(4).toString());
-        Text charismeArcher = new Text(archerStats.get(4).toString());
-        Text charismePretre = new Text(pretreStats.get(4).toString());
-        Text charismeMage = new Text(mageStats.get(4).toString());
-
-        //Ajout des lignes du tableau
-        header.getChildren().addAll(emptyHeader,guerrierHeader,archerHeader,pretreHeader,mageHeader);
-        atk.getChildren().addAll(statAtkHeader,atkGuerrier,atkArcher,atkPretre,atkMage);
-        hp.getChildren().addAll(statHpHeader,hpGuerrier,hpArcher,hpPretre,hpMage);
-        magie.getChildren().addAll(statMagieHeader,magieGuerrier,magieArcher,magiePretre,magieMage);
-        foi.getChildren().addAll(statFoiHeader,foiGuerrier,foiArcher,foiPretre,foiMage);
-        charisme.getChildren().addAll(statCharismeHeader,charismeGuerrier,charismeArcher,charismePretre,charismeMage);
-
-        stats.getChildren().add(header);
-        stats.getChildren().add(atk);
-        stats.getChildren().add(hp);
-        stats.getChildren().add(magie);
-        stats.getChildren().add(foi);
-        stats.getChildren().add(charisme);
-        stats.relocate(300,280);
-        stats.setSpacing(20);
-        root.getChildren().add(stats);
-
-        */
 
 
         //Ajout des CheckBoxs des classes
         HBox boutons = new HBox();
-        boutons.setSpacing(106);
+        boutons.setSpacing(100);
         boutons.relocate(465,550);
         CheckBox Guerrier = new CheckBox();
         CheckBox Archer = new CheckBox();
