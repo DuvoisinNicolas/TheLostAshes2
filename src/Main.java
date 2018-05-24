@@ -128,6 +128,7 @@ public class Main extends Application {
         statCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("name"));
         statCol.setPrefWidth(120);
+        statCol.setSortable(false);
         statCol.setResizable(false);
 
 
@@ -136,13 +137,15 @@ public class Main extends Application {
                 new PropertyValueFactory<Stats,String>("guerrier"));
         guerrierCol.setPrefWidth(120);
         guerrierCol.setResizable(false);
-        guerrierCol.setStyle( "-fx-alignment: CENTER;");
+        guerrierCol.setSortable(false);
+        guerrierCol.setStyle( "-fx-alignment: CENTER;  -fx-background-color: orange;");
 
         TableColumn archerCol = new TableColumn("Archer");
         archerCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("archer"));
         archerCol.setPrefWidth(120);
         archerCol.setResizable(false);
+        archerCol.setSortable(false);
         archerCol.setStyle( "-fx-alignment: CENTER;");
 
 
@@ -151,6 +154,7 @@ public class Main extends Application {
                 new PropertyValueFactory<Stats,String>("pretre"));
         pretreCol.setPrefWidth(120);
         pretreCol.setResizable(false);
+        pretreCol.setSortable(false);
         pretreCol.setStyle( "-fx-alignment: CENTER;");
 
 
@@ -159,6 +163,7 @@ public class Main extends Application {
                 new PropertyValueFactory<Stats,String>("mage"));
         mageCol.setPrefWidth(120);
         mageCol.setResizable(false);
+        mageCol.setSortable(false);
         mageCol.setStyle( "-fx-alignment: CENTER;");
 
 
@@ -271,14 +276,6 @@ public class Main extends Application {
     }
 
 
-    public String setw (String s,int size)
-    {
-        for (int i=s.length() ; i < size ; ++i)
-        {
-            s+="  ";
-        }
-        return s;
-    }
     public void calculerStats ()
     {
         switch (Class)
