@@ -12,7 +12,6 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -20,7 +19,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Observable;
 
 public class Main extends Application {
 
@@ -48,6 +46,12 @@ public class Main extends Application {
     private Alert alertName = new Alert(Alert.AlertType.ERROR);
     private Alert alertClass = new Alert(Alert.AlertType.ERROR);
     private TableView tabStats = new TableView();
+    private TableColumn statCol;
+    private TableColumn guerrierCol;
+    private TableColumn archerCol;
+    private TableColumn pretreCol;
+    private TableColumn mageCol;
+
 
 
 
@@ -64,7 +68,7 @@ public class Main extends Application {
     {
         primaryStage.setTitle("The Lost Ashes");
 
-        Scene scene = new Scene(root, 1280, 720, Color.GREY);
+        Scene scene = new Scene(root, 1280, 720, Color.BEIGE);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         afficherDecor();
@@ -72,18 +76,18 @@ public class Main extends Application {
         //Titre
         Text welcomeText = new Text("Création du Personnage ");
         welcomeText.setX(480);
-        welcomeText.setY(120);
+        welcomeText.setY(40);
         welcomeText.setStyle("-fx-font-size : 24");
         welcomeText.setFont(new Font("Calibri" , 30));
         root.getChildren().add(welcomeText);
 
         //Nom
         TextField nom = new TextField();
-        nom.relocate(600,200);
+        nom.relocate(600,130);
         root.getChildren().add(nom);
         Text texteNom = new Text("Pseudo");
         texteNom.setX(450);
-        texteNom.setY(220);
+        texteNom.setY(150);
         texteNom.setFont(new Font("Calibri",18));
         root.getChildren().add(texteNom);
 
@@ -123,8 +127,10 @@ public class Main extends Application {
         //Ajout du tableau
 
         tabStats.setEditable(true);
+        tabStats.setMinHeight(290);
+        tabStats.setMaxHeight(290);
 
-        TableColumn statCol = new TableColumn("");
+        statCol = new TableColumn("");
         statCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("name"));
         statCol.setPrefWidth(120);
@@ -132,15 +138,15 @@ public class Main extends Application {
         statCol.setResizable(false);
 
 
-        TableColumn guerrierCol = new TableColumn("Guerrier");
+        guerrierCol = new TableColumn("Guerrier");
         guerrierCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("guerrier"));
         guerrierCol.setPrefWidth(120);
         guerrierCol.setResizable(false);
         guerrierCol.setSortable(false);
-        guerrierCol.setStyle( "-fx-alignment: CENTER;  -fx-background-color: orange;");
+        guerrierCol.setStyle( "-fx-alignment: CENTER;");
 
-        TableColumn archerCol = new TableColumn("Archer");
+        archerCol = new TableColumn("Archer");
         archerCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("archer"));
         archerCol.setPrefWidth(120);
@@ -149,7 +155,7 @@ public class Main extends Application {
         archerCol.setStyle( "-fx-alignment: CENTER;");
 
 
-        TableColumn pretreCol = new TableColumn("Prêtre");
+        pretreCol = new TableColumn("Prêtre");
         pretreCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("pretre"));
         pretreCol.setPrefWidth(120);
@@ -158,7 +164,7 @@ public class Main extends Application {
         pretreCol.setStyle( "-fx-alignment: CENTER;");
 
 
-        TableColumn mageCol = new TableColumn("Mage");
+        mageCol = new TableColumn("Mage");
         mageCol.setCellValueFactory(
                 new PropertyValueFactory<Stats,String>("mage"));
         mageCol.setPrefWidth(120);
@@ -168,17 +174,17 @@ public class Main extends Application {
 
 
         tabStats.setItems(data);
-
         tabStats.getColumns().addAll(statCol,guerrierCol,archerCol,pretreCol,mageCol);
-        tabStats.relocate(300,250);
+        tabStats.setMouseTransparent(true);
+        tabStats.relocate(335,230);
         root.getChildren().add(tabStats);
 
 
 
         //Ajout des CheckBoxs des classes
         HBox boutons = new HBox();
-        boutons.setSpacing(100);
-        boutons.relocate(465,550);
+        boutons.setSpacing(95);
+        boutons.relocate(510,550);
         CheckBox Guerrier = new CheckBox();
         CheckBox Archer = new CheckBox();
         CheckBox Mage = new CheckBox();
@@ -187,36 +193,51 @@ public class Main extends Application {
         root.getChildren().add(boutons);
 
 
-
         //Déclaration des events des checkbox
         Guerrier.setOnAction((event -> {
             Archer.setSelected(false);
             Mage.setSelected(false);
             Pretre.setSelected(false);
+            changerCouleursTransparent();
             Class = "Guerrier";
+            guerrierCol.setStyle("-fx-background-color: tomato;");
         }));
         Archer.setOnAction((event -> {
             Guerrier.setSelected(false);
             Mage.setSelected(false);
             Pretre.setSelected(false);
             Class = "Archer";
+            changerCouleursTransparent();
+            archerCol.setStyle("-fx-background-color: green;");
         }));
         Pretre.setOnAction((event -> {
             Archer.setSelected(false);
             Mage.setSelected(false);
             Guerrier.setSelected(false);
             Class = "Prêtre";
+            changerCouleursTransparent();
+            pretreCol.setStyle("-fx-background-color: yellow;");
+
         }));
         Mage.setOnAction((event -> {
             Archer.setSelected(false);
             Guerrier.setSelected(false);
             Pretre.setSelected(false);
             Class = "Mage";
+            changerCouleursTransparent();
+            mageCol.setStyle("-fx-background-color: magenta;");
         }));
+
+        Rectangle choix = new Rectangle(335,520,602,80);
+        choix.setFill(Color.GREEN);
+        choix.setStroke(Color.BLACK);
+        choix.setArcWidth(30.0);
+        choix.setArcHeight(20.0);
+        root.getChildren().add(choix);
 
 
         Button valider = new Button("Valider");
-        valider.relocate(580,600);
+        valider.relocate(580,650);
         valider.resize(100,100);
         root.getChildren().add(valider);
 
@@ -225,12 +246,11 @@ public class Main extends Application {
         //Alertes de pseudo/classe
         alertClass.setTitle("Erreur !");
         alertClass.setHeaderText("Merci de choisir une classe !");
-        alertClass.setContentText("Si vous ne savez pas quoi choisir , prenez prêtre , personne ne prend prêtre.");
+        alertClass.setContentText("Conseil : Prêtre c'est cool.");
 
         alertName.setTitle("Erreur !");
         alertName.setHeaderText("Merci d'entrer un pseudo !");
-        alertName.setContentText("Si vous n'avez pas d'inspiration , appellez vous xXDarkSasukeXx...");
-
+        alertName.setContentText("Conseil : Utilisez le clavier :D");
 
         //Test de pression de bouton
         valider.setOnAction((event)->
@@ -309,6 +329,16 @@ public class Main extends Application {
                 P.setCharisme(mageStats.get(4));
                 break;
         }
+    }
+
+    public void changerCouleursTransparent ()
+    {
+        statCol.setStyle("-fx-background-color: transparent;");
+        guerrierCol.setStyle("-fx-background-color: transparent;");
+        archerCol.setStyle("-fx-background-color: transparent;");
+        pretreCol.setStyle("-fx-background-color: transparent;");
+        mageCol.setStyle("-fx-background-color: transparent;");
+
     }
     public void preparerBoutons()
     {
@@ -392,17 +422,17 @@ public class Main extends Application {
     public void afficherDecor ()
     {
         Rectangle rectGauche = new Rectangle(10,10,250,700);
-        rectGauche.setFill(Color.TRANSPARENT);
+        rectGauche.setFill(Color.BROWN);
         rectGauche.setStroke(Color.GOLD);
         root.getChildren().add(rectGauche);
 
         Rectangle rectDroite = new Rectangle(1020,10,250,700);
-        rectDroite.setFill(Color.TRANSPARENT);
+        rectDroite.setFill(Color.BROWN);
         rectDroite.setStroke(Color.GOLD);
         root.getChildren().add(rectDroite);
 
         Rectangle rectBas = new Rectangle(270,70,740,640);
-        rectBas.setFill(Color.TRANSPARENT);
+        rectBas.setFill(Color.GREEN);
         rectBas.setStroke(Color.BLACK);
         rectBas.setArcWidth(30.0);
         rectBas.setArcHeight(20.0);
